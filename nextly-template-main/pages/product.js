@@ -32,7 +32,7 @@ const Product = () => {
                 <title>Quant Investments Group</title>
                 <meta
                     name="description"
-                    content="Nextly is a free landing page template built with next.js & Tailwind CSS"
+                    content="Algo Trading Experts"
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
