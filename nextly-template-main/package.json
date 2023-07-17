@@ -27,6 +27,7 @@
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",
     "@mui/icons-material": "^5.14.0",
+    "@mui/material": "^5.14.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "bootstrap": "^4.4.1",
     "grommet": "^2.33.0",
