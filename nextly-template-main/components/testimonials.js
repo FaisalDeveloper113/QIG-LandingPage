@@ -13,42 +13,38 @@ const Testimonials  = () => {
         <div className="lg:col-span-2 xl:col-auto">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Share a real <Mark>testimonial</Mark>
-              that hits some of your benefits from one of your popular customer.
-            </p>
+            Among the various automated trading platforms I've explored, none can rival the unmatched quality of QIG. The user-friendly interface, superb customer support, and consistently profitable outcomes make it the ultimate choice for any serious trader.</p>
 
             <Avatar
               image={userOneImg}
-              name="Sarah Steiner"
-              title="VP Sales at Google"
+              name="Faisal Iqbal"
+              title="Software Engineer"
             />
           </div>
         </div>
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Make sure you only pick the <Mark>right sentence</Mark>
-              to keep it short and simple.
+            Through this remarkable auto trading system, I've finally discovered a passive income stream from trading. It demands minimal effort while consistently delivering extraordinary results. It's truly a marvel.
             </p>
 
             <Avatar
               image={userTwoImg}
-              name="Dylan Ambrose"
-              title="Lead marketer at Netflix"
+              name="Alexander Accoyle"
+              title="Banking"
             />
           </div>
         </div>
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              This is an <Mark>awesome</Mark> landing page template I&apos;ve seen. I
-              would use this for anything.
+            The transparency and accuracy exhibited by QIG  have left me astounded. Their performance reports align flawlessly with my own results, and their unwavering commitment to honesty and ethical practices is highly commendable.
             </p>
 
             <Avatar
               image={userThreeImg}
-              name="Gabrielle Winn"
-              title="Co-founder of Acme Inc"
+              name="Sawyer Oliphant"
+              title="Algo Trader"
             />
           </div>
         </div>
