@@ -9,6 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Menu } from '@mui/material';
 
 const Navbar = () => {
   const navigation = ["Product", "Service", "Contact", "Blog"];
@@ -21,6 +22,26 @@ const Navbar = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+    
+    console.log("hover");
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+    setSelectedItem(null);
+  };
+
+  const serviceDropdownOptions = [
+    { id: 1, label: 'Option 1' },
+    { id: 2, label: 'Option 2' },
+    { id: 3, label: 'Option 3' },
+  ];
+
 
   return (
     <div className="w-full">
@@ -73,16 +94,16 @@ const Navbar = () => {
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
                     {navigation.map((item, index) => (
-                      <Link
+                      <Link 
                         key={index}
                         href={
                           item.toLowerCase() === "product"
                             ? "/product"
-                            : item.toLowerCase() === "service"
-                            ? "/service" 
+                            //: item.toLowerCase() === "service"
+                            //? "/service" 
                             : item.toLowerCase() === "contact"
-                            ? "/contact"
-                            : "/"
+                              ? "/contact"
+                              : "/"
                         }
                         className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                       >
@@ -106,23 +127,49 @@ const Navbar = () => {
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index}>
+              <li className="mr-3 nav__item" key={index} 
+              onMouseEnter={menu.toLowerCase() === 'service' ? handleMouseEnter : null}
+              onMouseLeave={menu.toLowerCase() === 'service' ? handleMouseLeave : null}>
                 <Link
                   href={
                     menu.toLowerCase() === "product"
                       ? "/product"
-                      : menu.toLowerCase() === "service"
-                      ? "/service" // Update the href for the "Service" menu item
+                      //: menu.toLowerCase() === "service"
+                      //? "/service" // Update the href for the "Service" menu item
                       : menu.toLowerCase() === "contact"
-                      ? "/contact"
-                      : "/"
+                        ? "/contact"
+                        : "/"
                   }
                   className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
                   {menu}
                 </Link>
+                {showDropdown && menu.toLowerCase() == 'service' && (
+          
+          <div className="dropdown" 
+          style={{
+            position: 'absolute', 
+            backgroundColor:'white', 
+            color: 'black',
+            padding:'10px',
+            borderRadius:'5px'
+
+            
+            }}>
+
+            <ul style={{textAlign:'left', cursor:'pointer'}}>
+
+              <li ><Link href='/mt4service'>MT4/MT5</Link></li>
+              <li >BLOCKCHAIN</li>
+              <li >WEB DEVELOPMENT</li>
+            </ul>
+
+          </div>
+         
+        )}
               </li>
             ))}
+            
           </ul>
         </div>
 
@@ -136,6 +183,7 @@ const Navbar = () => {
 
           <ThemeChanger />
         </div>
+        
       </nav>
     </div>
   );
