@@ -10,10 +10,16 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Menu } from '@mui/material';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import logoDark from '../images/nav-dark-logo.png';
+import logoLight from '../images/nav-light-logo.png';
+
+import { useTheme } from 'next-themes';
 
 const Navbar = () => {
   const navigation = ["Product", "Service", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -27,8 +33,8 @@ const Navbar = () => {
 
   const handleMouseEnter = () => {
     setShowDropdown(true);
+
     
-    console.log("hover");
   };
 
   const handleMouseLeave = () => {
@@ -42,10 +48,9 @@ const Navbar = () => {
     { id: 3, label: 'Option 3' },
   ];
 
-
   return (
     <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
+      <nav className="container relative flex flex-wrap items-center justify-between mx-auto lg:justify-between xl:px-0">
         {/* Logo */}
         <Disclosure>
           {({ open }) => (
@@ -54,15 +59,25 @@ const Navbar = () => {
                 <Link href="/">
                   <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
                     <span>
+
                       <Image
-                        src="/img/logo.svg"
-                        alt="Q"
-                        width="32"
-                        height="32"
-                        className="w-8"
+                        style={{ position: 'absolute' }}
+                        src={logoDark}
+                        alt="q"
+                        width="250"
+                        height="150"
+                        className="dark:hidden"
+                      />
+                      <Image
+
+                        src={logoLight}
+                        alt="q"
+                        width="250"
+                        height="150"
+                        className=""
                       />
                     </span>
-                    <span>Quant Investments Group</span>
+                    {/* <span>Quant Investments Group</span> */}
                   </span>
                 </Link>
 
@@ -94,7 +109,7 @@ const Navbar = () => {
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
                     {navigation.map((item, index) => (
-                      <Link 
+                      <Link
                         key={index}
                         href={
                           item.toLowerCase() === "product"
@@ -127,9 +142,9 @@ const Navbar = () => {
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index} 
-              onMouseEnter={menu.toLowerCase() === 'service' ? handleMouseEnter : null}
-              onMouseLeave={menu.toLowerCase() === 'service' ? handleMouseLeave : null}>
+              <li className="mr-3 nav__item" key={index}
+                onMouseEnter={menu.toLowerCase() === 'service' ? handleMouseEnter : null}
+                onMouseLeave={menu.toLowerCase() === 'service' ? handleMouseLeave : null}>
                 <Link
                   href={
                     menu.toLowerCase() === "product"
@@ -142,34 +157,33 @@ const Navbar = () => {
                   }
                   className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
-                  {menu}
+                  {menu}{menu.toLowerCase() === 'service' && <ArrowDropDownIcon />}
                 </Link>
                 {showDropdown && menu.toLowerCase() == 'service' && (
-          
-          <div className="dropdown" 
-          style={{
-            position: 'absolute', 
-            backgroundColor:'white', 
-            color: 'black',
-            padding:'10px',
-            borderRadius:'5px'
 
-            
-            }}>
+                  <div className="dropdown"
+                    style={{
+                      position: 'absolute',
+                      backgroundColor: 'white',
+                      color: 'black',
+                      padding: '20px',
+                      borderRadius: '5px'
 
-            <ul style={{textAlign:'left', cursor:'pointer'}}>
+                    }}>
 
-              <li ><Link href='/mt4service'>MT4/MT5</Link></li>
-              <li >BLOCKCHAIN</li>
-              <li >WEB DEVELOPMENT</li>
-            </ul>
+                    <ul className="" style={{ textAlign: 'left', cursor: 'pointer' }}>
 
-          </div>
-         
-        )}
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
+                    </ul>
+
+                  </div>
+
+                )}
               </li>
             ))}
-            
+
           </ul>
         </div>
 
@@ -183,7 +197,7 @@ const Navbar = () => {
 
           <ThemeChanger />
         </div>
-        
+
       </nav>
     </div>
   );

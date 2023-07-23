@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import Container from "./container";
+import logo from '../images/icon-03.png';
 
 export default function Footer() {
   const navigation = ["Product", "Service", "Contact", "Blog"];
@@ -15,11 +16,11 @@ export default function Footer() {
               {" "}
               <Link href="/" className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
                     <Image
-                      src="/img/logo.svg"
+                      src={logo}
                       alt="N"
-                      width="32"
-                      height="32"
-                      className="w-8"
+                      width="70"
+                      height="70"
+                      className=""
                     />
                   <span>QIG</span>
               </Link>

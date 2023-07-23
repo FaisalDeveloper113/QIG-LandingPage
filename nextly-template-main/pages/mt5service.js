@@ -23,7 +23,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import stockImg from '../images/stock-market-analyst-looking-at-computer-trading-online-analyzing-data.jpg'
 import { motion } from "framer-motion";
 
-const mt4Service = () => {
+const mt5Service = () => {
     const [isHovered2, setIsHovered2] = useState(false);
     const cardStyle2 = {
         maxWidth: 400,
@@ -79,16 +79,18 @@ const mt4Service = () => {
             <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
                 <div className=" darks:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px' }}>
                     <div className="grid grid-cols-3 gap-4 text-center  dark:bg-trueGray-800" >
-                        <div className="p-4 col-span-3  dark:bg-trueGray-800">
+                        
+                            <div className="p-4 col-span-3  dark:bg-trueGray-800">
                             <motion.div
-                                initial="initial"
-                                animate="animate"
-                                variants={slideUpVariants}
-                                transition={{ duration: 0.8 }}>
+                            initial="initial"
+                            animate="animate"
+                            variants={slideUpVariants}
+                            transition={{ duration: 0.8 }}>
                                 <h2 className="text-2xl font-bold">Benefits of Our Breakout Trading Bot:</h2>
                                 <p>Our Breakout Trading Bot offers a wide range of benefits for traders of all levels. </p>
-                            </motion.div>
-                        </div>
+                                </motion.div>
+                            </div>
+                        
 
                     </div>
                     <div className=" p-4 flex flex-col md:flex-row  dark:bg-trueGray-800">
@@ -98,7 +100,6 @@ const mt4Service = () => {
                             variants={slideLeftVariants}
                             transition={{ duration: 0.8 }}>
                             <div className="flex-1 p-4">
-
                                 <Card
                                     className="dark:bg-black"
                                     sx={cardStyle2}
@@ -112,7 +113,7 @@ const mt4Service = () => {
                                     <CardContent>
 
                                         <Typography className=" dark:text-white" variant="h4" component="div" color="text.primary">
-                                            MetaTrader 4
+                                            MetaTrader 5
                                         </Typography>
                                         <Divider></Divider>
                                         <br />
@@ -205,7 +206,7 @@ const mt4Service = () => {
                         </motion.div>
                     </div>
                 </div>
-            </div >
+            </div>
             <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
                 <div className=" dark:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px' }}>
                     <div className="flex ">
@@ -251,4 +252,4 @@ const mt4Service = () => {
     );
 }
 
-export default mt4Service;
+export default mt5Service;
