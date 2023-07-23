@@ -13,11 +13,14 @@ import { Menu } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import logoDark from '../images/nav-dark-logo.png';
 import logoLight from '../images/nav-light-logo.png';
+import ChevronUpDownIcon from '@heroicons/react/24/solid';
 
 import { useTheme } from 'next-themes';
+import { ChevronUpIcon } from '@heroicons/react/24/solid';
 
 const Navbar = () => {
-  const navigation = ["Product", "Service", "Contact", "Blog"];
+  const navigation = ["About Us", "Product", "Service", "Contact", "Blog"];
+  const Mobnavigation = ["About Us", "Product", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
 
 
@@ -34,7 +37,7 @@ const Navbar = () => {
   const handleMouseEnter = () => {
     setShowDropdown(true);
 
-    
+
   };
 
   const handleMouseLeave = () => {
@@ -42,14 +45,10 @@ const Navbar = () => {
     setSelectedItem(null);
   };
 
-  const serviceDropdownOptions = [
-    { id: 1, label: 'Option 1' },
-    { id: 2, label: 'Option 2' },
-    { id: 3, label: 'Option 3' },
-  ];
+
 
   return (
-    <div className="w-full">
+    <div className="w-full z-20 relative">
       <nav className="container relative flex flex-wrap items-center justify-between mx-auto lg:justify-between xl:px-0">
         {/* Logo */}
         <Disclosure>
@@ -65,7 +64,7 @@ const Navbar = () => {
                         src={logoDark}
                         alt="q"
                         width="250"
-                        height="150"
+                        height="100"
                         className="dark:hidden"
                       />
                       <Image
@@ -73,7 +72,7 @@ const Navbar = () => {
                         src={logoLight}
                         alt="q"
                         width="250"
-                        height="150"
+                        height="100"
                         className=""
                       />
                     </span>
@@ -108,23 +107,44 @@ const Navbar = () => {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
-                    {navigation.map((item, index) => (
+                    {Mobnavigation.map((item, index) => (
                       <Link
                         key={index}
                         href={
                           item.toLowerCase() === "product"
                             ? "/product"
-                            //: item.toLowerCase() === "service"
-                            //? "/service" 
-                            : item.toLowerCase() === "contact"
-                              ? "/contact"
-                              : "/"
+                            : item.toLowerCase() === "about us"
+                              ? "/aboutUs"
+                              : item.toLowerCase() === "contact"
+                                ? "/contact"
+                                : "/"
                         }
                         className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                       >
                         {item}
                       </Link>
                     ))}
+                    <Disclosure>
+                      {({ open }) => (
+                        <>
+                          <Disclosure.Button className="flex w-full text-gray-500 rounded-md dark:text-gray-300 mt-1">
+                            <p>Service</p>
+                            <ChevronUpIcon
+                              className={`${open ? 'rotate-180 transform' : ''
+                                 } ml-5 h-5 w-5 `}
+                            />
+                          </Disclosure.Button>
+                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                          <ul className="" style={{ textAlign: 'left', cursor: 'pointer' }}>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
+                    </ul>
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </Disclosure>
                     <Link
                       href="https://qig-dashboard-frontend.vercel.app/login"
                       className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5"
@@ -149,11 +169,11 @@ const Navbar = () => {
                   href={
                     menu.toLowerCase() === "product"
                       ? "/product"
-                      //: menu.toLowerCase() === "service"
-                      //? "/service" // Update the href for the "Service" menu item
-                      : menu.toLowerCase() === "contact"
-                        ? "/contact"
-                        : "/"
+                      : menu.toLowerCase() === "about us"
+                        ? "/aboutUs"
+                        : menu.toLowerCase() === "contact"
+                          ? "/contact"
+                          : "/"
                   }
                   className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
@@ -172,7 +192,7 @@ const Navbar = () => {
                     }}>
 
                     <ul className="" style={{ textAlign: 'left', cursor: 'pointer' }}>
-
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
                       <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
                       <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
                       <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>

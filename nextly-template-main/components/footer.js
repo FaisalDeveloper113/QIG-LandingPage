@@ -8,7 +8,7 @@ export default function Footer() {
   const navigation = ["Product", "Service", "Contact", "Blog"];
   const legal = ["Terms", "Privacy", "Legal"];
   return (
-    <div className="relative">
+    <div className="relative bg-gray-100 dark:bg-trueGray-800">
       <Container>
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
           <div className="lg:col-span-2">

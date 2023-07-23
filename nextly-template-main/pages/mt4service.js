@@ -28,7 +28,7 @@ const mt4Service = () => {
     const cardStyle2 = {
         maxWidth: 400,
         minWidth: 400,
-        minHeight: 600,
+        minHeight: 500,
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         marginRight: '1em',
         transition: 'transform 0.3s',
@@ -208,7 +208,7 @@ const mt4Service = () => {
             </div >
             <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
                 <div className=" dark:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px' }}>
-                    <div className="flex ">
+                    <div className="flex flex-col md:flex-row">
                         <div className="flex-1 dark:bg-trueGray-800 p-4"><img src="https://yourrobotrader.com/wp-content/uploads/2023/03/stock-market-analyst-looking-at-computer-trading-online-analyzing-data-.jpg"></img></div>
                         <div className="flex-1 dark:bg-trueGray-800 p-6">
                             <div className="flex-1 p-4 flex flex-row text-left">
