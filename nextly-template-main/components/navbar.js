@@ -131,16 +131,16 @@ const Navbar = () => {
                             <p>Service</p>
                             <ChevronUpIcon
                               className={`${open ? 'rotate-180 transform' : ''
-                                 } ml-5 h-5 w-5 `}
+                                } ml-5 h-5 w-5 `}
                             />
                           </Disclosure.Button>
                           <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                          <ul className="" style={{ textAlign: 'left', cursor: 'pointer' }}>
-                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
-                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
-                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
-                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
-                    </ul>
+                            <ul className="" style={{ textAlign: 'left', cursor: 'pointer' }}>
+                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
+                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
+                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
+                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
+                            </ul>
                           </Disclosure.Panel>
                         </>
                       )}
@@ -173,7 +173,7 @@ const Navbar = () => {
                         ? "/aboutUs"
                         : menu.toLowerCase() === "contact"
                           ? "/contact"
-                          : "/"
+                          : "/customService"
                   }
                   className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
@@ -181,17 +181,17 @@ const Navbar = () => {
                 </Link>
                 {showDropdown && menu.toLowerCase() == 'service' && (
 
-                  <div className="dropdown"
+                  <div className="dropdown shadow-2xl bg-white dark:bg-trueGray-800 dark:text-gray-200"
                     style={{
                       position: 'absolute',
-                      backgroundColor: 'white',
+                      backgroundColor: '',
                       color: 'black',
                       padding: '20px',
                       borderRadius: '5px'
 
                     }}>
 
-                    <ul className="" style={{ textAlign: 'left', cursor: 'pointer' }}>
+                    <ul className="dark:text-gray-200" style={{ textAlign: 'left', cursor: 'pointer' }}>
                       <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
                       <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
                       <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
