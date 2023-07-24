@@ -9,10 +9,20 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Menu } from '@mui/material';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import logoDark from '../images/nav-dark-logo.png';
+import logoLight from '../images/nav-light-logo.png';
+import ChevronUpDownIcon from '@heroicons/react/24/solid';
+
+import { useTheme } from 'next-themes';
+import { ChevronUpIcon } from '@heroicons/react/24/solid';
 
 const Navbar = () => {
-  const navigation = ["Product", "Service", "Contact", "Blog"];
+  const navigation = ["About Us", "Product", "Service", "Contact", "Blog"];
+  const Mobnavigation = ["About Us", "Product", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -21,10 +31,25 @@ const Navbar = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+
+
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+    setSelectedItem(null);
+  };
+
+
 
   return (
-    <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
+    <div className="w-full z-20 relative">
+      <nav className="container relative flex flex-wrap items-center justify-between mx-auto lg:justify-between xl:px-0">
         {/* Logo */}
         <Disclosure>
           {({ open }) => (
@@ -33,15 +58,25 @@ const Navbar = () => {
                 <Link href="/">
                   <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
                     <span>
+
                       <Image
-                        src="/img/logo.svg"
-                        alt="Q"
-                        width="32"
-                        height="32"
-                        className="w-8"
+                        style={{ position: 'absolute' }}
+                        src={logoDark}
+                        alt="q"
+                        width="250"
+                        height="100"
+                        className="dark:hidden"
+                      />
+                      <Image
+
+                        src={logoLight}
+                        alt="q"
+                        width="250"
+                        height="100"
+                        className=""
                       />
                     </span>
-                    <span>Quant Investments Group</span>
+                    {/* <span>Quant Investments Group</span> */}
                   </span>
                 </Link>
 
@@ -72,23 +107,44 @@ const Navbar = () => {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
-                    {navigation.map((item, index) => (
+                    {Mobnavigation.map((item, index) => (
                       <Link
                         key={index}
                         href={
                           item.toLowerCase() === "product"
                             ? "/product"
-                            : item.toLowerCase() === "service"
-                            ? "/service" 
-                            : item.toLowerCase() === "contact"
-                            ? "/contact"
-                            : "/"
+                            : item.toLowerCase() === "about us"
+                              ? "/aboutUs"
+                              : item.toLowerCase() === "contact"
+                                ? "/contact"
+                                : "/"
                         }
                         className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                       >
                         {item}
                       </Link>
                     ))}
+                    <Disclosure>
+                      {({ open }) => (
+                        <>
+                          <Disclosure.Button className="flex w-full text-gray-500 rounded-md dark:text-gray-300 mt-1">
+                            <p>Service</p>
+                            <ChevronUpIcon
+                              className={`${open ? 'rotate-180 transform' : ''
+                                } ml-5 h-5 w-5 `}
+                            />
+                          </Disclosure.Button>
+                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                            <ul className="" style={{ textAlign: 'left', cursor: 'pointer' }}>
+                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
+                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
+                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
+                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
+                            </ul>
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </Disclosure>
                     <Link
                       href="https://qig-dashboard-frontend.vercel.app/login"
                       className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5"
@@ -106,23 +162,48 @@ const Navbar = () => {
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index}>
+              <li className="mr-3 nav__item" key={index}
+                onMouseEnter={menu.toLowerCase() === 'service' ? handleMouseEnter : null}
+                onMouseLeave={menu.toLowerCase() === 'service' ? handleMouseLeave : null}>
                 <Link
                   href={
                     menu.toLowerCase() === "product"
                       ? "/product"
-                      : menu.toLowerCase() === "service"
-                      ? "/service" // Update the href for the "Service" menu item
-                      : menu.toLowerCase() === "contact"
-                      ? "/contact"
-                      : "/"
+                      : menu.toLowerCase() === "about us"
+                        ? "/aboutUs"
+                        : menu.toLowerCase() === "contact"
+                          ? "/contact"
+                          : "/customService"
                   }
                   className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
-                  {menu}
+                  {menu}{menu.toLowerCase() === 'service' && <ArrowDropDownIcon />}
                 </Link>
+                {showDropdown && menu.toLowerCase() == 'service' && (
+
+                  <div className="dropdown shadow-2xl bg-white dark:bg-trueGray-800 dark:text-gray-200"
+                    style={{
+                      position: 'absolute',
+                      backgroundColor: '',
+                      color: 'black',
+                      padding: '20px',
+                      borderRadius: '5px'
+
+                    }}>
+
+                    <ul className="dark:text-gray-200" style={{ textAlign: 'left', cursor: 'pointer' }}>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
+                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
+                    </ul>
+
+                  </div>
+
+                )}
               </li>
             ))}
+
           </ul>
         </div>
 
@@ -136,6 +217,7 @@ const Navbar = () => {
 
           <ThemeChanger />
         </div>
+
       </nav>
     </div>
   );

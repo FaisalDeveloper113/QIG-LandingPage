@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         trueGray: colors.neutral,
       },
+      
     },
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],

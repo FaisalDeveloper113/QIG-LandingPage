@@ -2,12 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import Container from "./container";
+import logo from '../images/icon-03.png';
 
 export default function Footer() {
   const navigation = ["Product", "Service", "Contact", "Blog"];
   const legal = ["Terms", "Privacy", "Legal"];
   return (
-    <div className="relative">
+    <div className="relative bg-gray-100 dark:bg-trueGray-800">
       <Container>
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
           <div className="lg:col-span-2">
@@ -15,11 +16,11 @@ export default function Footer() {
               {" "}
               <Link href="/" className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
                     <Image
-                      src="/img/logo.svg"
+                      src={logo}
                       alt="N"
-                      width="32"
-                      height="32"
-                      className="w-8"
+                      width="70"
+                      height="70"
+                      className=""
                     />
                   <span>QIG</span>
               </Link>

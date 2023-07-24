@@ -34,7 +34,6 @@ const Product = () => {
                     name="description"
                     content="Algo Trading Experts"
                 />
-                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <Navbar />
@@ -44,18 +43,18 @@ const Product = () => {
                 </h1>
             </Container>
             <Container>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: ['column', 'row'],
-                    gap: '3rem',
-                    marginLeft: '5rem',
-                    marginRight: '5rem',
-                }}
+            <div className = "flex flex-col md:flex-row"
+                // style={{
+                //     display: 'flex',
+                //     flexDirection: ['column', 'row'],
+                //     gap: '3rem',
+                //     marginLeft: '5rem',
+                //     marginRight: '5rem',
+                // }}
             >
-                <RecipeReviewCard {...productInfo} />
-                <RecipeReviewCard {...productInfo2} />
-                <RecipeReviewCard {...productInfo2} />
+                <div className = "flex-1 shadow-2xl m-4 p-2 rounded-lg dark:bg-trueGray-800"><RecipeReviewCard  {...productInfo} /></div>
+                <div className = "flex-1 shadow-2xl m-4 p-2 rounded-lg dark:bg-trueGray-800"><RecipeReviewCard  {...productInfo2} /></div>
+                <div className = "flex-1 shadow-2xl m-4 p-2 rounded-lg dark:bg-trueGray-800"><RecipeReviewCard  {...productInfo2} /></div>
             </div>
             </Container>
            
