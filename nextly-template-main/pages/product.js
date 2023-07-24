@@ -34,6 +34,7 @@ const Product = () => {
                     name="description"
                     content="Algo Trading Experts"
                 />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <Navbar />
