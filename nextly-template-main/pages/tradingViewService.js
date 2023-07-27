@@ -27,7 +27,7 @@ const tradingViewService = () => {
     const [isHovered2, setIsHovered2] = useState(false);
     const cardStyle2 = {
         maxWidth: 400,
-        minWidth: 400,
+        minWidth: 330,
         minHeight: 500,
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         marginRight: '1em',
@@ -77,7 +77,7 @@ const tradingViewService = () => {
 
             <Navbar />
             <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
-                <div className=" darks:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px' }}>
+                <div className="relative z-20 darks:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px', marginTop:'200px'  }}>
                     <div className="grid grid-cols-3 gap-4 text-center  dark:bg-trueGray-800" >
                        
                             <div className="p-4 col-span-3  dark:bg-trueGray-800">
@@ -182,23 +182,23 @@ const tradingViewService = () => {
                             transition={{ duration: 0.8 }}>
                             <div className="flex-1 p-4 flex-col md:flex-row">
                                 <div className="flex-1 p-4 flex flex-row text-left">
-                                    <img style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_1-Breakout-Maximize-Profit.png"></img>
+                                    <img aria-hidden="true" alt = "" style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_1-Breakout-Maximize-Profit.png"></img>
                                     <p>Maximizes your profits by identifying and capturing breakout opportunities automatically</p>
                                 </div>
                                 <div className="flex-1 p-4 flex flex-row text-left">
-                                    <img style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_2-Simplify-Trading-Strategy.png"></img>
+                                    <img aria-hidden="true" alt = "" style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_2-Simplify-Trading-Strategy.png"></img>
                                     <p>Simplifies your trading strategy by providing automated trading signals based on technical indicators</p>
                                 </div>
                                 <div className="flex-1 p-4 flex flex-row text-left">
-                                    <img style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_3-Minimize-Risk-1.png"></img>
+                                    <img aria-hidden="true" alt = "" style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_3-Minimize-Risk-1.png"></img>
                                     <p>Minimizes your risk by incorporating stop-loss orders to limit potential losses</p>
                                 </div>
                                 <div className="flex-1 p-4 flex flex-row text-left">
-                                    <img style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_4-Breakout-Save-Your-Time-1.png"></img>
+                                    <img aria-hidden="true" alt = "" style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_4-Breakout-Save-Your-Time-1.png"></img>
                                     <p>Saves you time and effort by automating your trading strategy, allowing you to focus on other aspects of your trading approach</p>
                                 </div>
                                 <div className="flex-1 p-4 flex flex-row text-left">
-                                    <img style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_5-Breakout-Ahead-of-the-competition.png"></img>
+                                    <img aria-hidden="true" alt = "" style={{ marginRight: '20px' }} width='66' height='66' src="https://yourrobotrader.com/wp-content/uploads/2023/04/YourRoboTrading-Icons-FIX_5-Breakout-Ahead-of-the-competition.png"></img>
                                     <p>Provides you with advanced trading technology that puts you ahead of the competition</p>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@ const tradingViewService = () => {
             <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
                 <div className=" dark:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px' }}>
                     <div className="flex ">
-                        <div className="flex-1 p-4 dark:bg-trueGray-800"><img src="https://yourrobotrader.com/wp-content/uploads/2023/03/stock-market-analyst-looking-at-computer-trading-online-analyzing-data-.jpg"></img></div>
+                        <div className="flex-1 p-4 dark:bg-trueGray-800"><img aria-hidden="true" alt = "" src="https://yourrobotrader.com/wp-content/uploads/2023/03/stock-market-analyst-looking-at-computer-trading-online-analyzing-data-.jpg"></img></div>
                         <div className="flex-1 dark:bg-trueGray-800 p-6">
                             <div className="flex-1 p-4 flex flex-row text-left">
                                 <CheckCircleOutlineIcon style={{ color: '#06CA8C', marginRight: '20px' }} />

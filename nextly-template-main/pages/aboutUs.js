@@ -25,16 +25,16 @@ const aboutUs = () => {
             </Head>
 
             <Navbar />
-            <Container>
-                <h1 className=" text-center text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+            <Container  >
+                <h1 style = {{marginTop:'150px'}} className="z-index relative mt-100 text-center text-6xl font-bold leading-snug tracking-tight text-gray-800 lg:text-8xl lg:leading-tight xl:text-8xl xl:leading-tight dark:text-white">
                     About Us
                 </h1>
             </Container>
 
-            <div className=" dark:bg-trueGray-800 py-8 px-8" style={{ paddingBottom: '', textAlign: '-webkit-center' }}>
-                <div className=" darks:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px' }}>
+            <div className=" z-20 dark:bg-trueGray-800 py-8 px-8" style={{ paddingBottom: '', textAlign: '-webkit-center' }}>
+                <div className=" dark:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px', marginTop: '250px' }}>
                     <div className="grid grid-cols-3 gap-4 text-center  dark:bg-trueGray-800" >
-                        <div className="p-4 col-span-3 text-left dark:bg-trueGray-800">
+                        <div className="z-20 p-4 col-span-3 text-left dark:bg-trueGray-800">
                             <motion.div
                                 initial="initial"
                                 animate="animate"

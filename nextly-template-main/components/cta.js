@@ -4,16 +4,16 @@ import Container from "./container";
 const Cta = () => {
   return (
     <Container>
-      <div className="flex flex-wrap items-center justify-between w-full max-w-4xl gap-5 mx-auto text-white bg-indigo-600 px-7 py-7 lg:px-12 lg:py-12 lg:flex-nowrap rounded-xl">
-        <div className="flex-grow text-center lg:text-left">
-          <h2 className="text-2xl font-medium lg:text-3xl">
+      <div className="z-20 flex flex-wrap items-center justify-between w-full max-w-4xl gap-5 mx-auto text-white bg-indigo-600 px-7 py-7 lg:px-12 lg:py-12 lg:flex-nowrap rounded-xl">
+        <div className="z-20 flex-grow text-center lg:text-left">
+          <h2 className="z-20 text-2xl font-medium lg:text-3xl">
             For general queries
           </h2>
           <p className="mt-2 font-medium text-white text-opacity-90 lg:text-xl">
             Please email admin@quantinvestmentsgroup.com.
           </p>
         </div>
-        <div className="flex-shrink-0 w-full text-center lg:w-auto">
+        <div className="z-20 flex-shrink-0 w-full text-center lg:w-auto">
           <a
             href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRspPXWzjTKfQlgzJxVQZPXzWNMGwCVzttlQvsPlLbVTxfhWTRfCxRpkDRHmzZMDNVtnVnq"
             target="_blank"
