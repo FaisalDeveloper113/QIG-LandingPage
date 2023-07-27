@@ -26,11 +26,11 @@ const Service = () => {
             </Head>
 
             <Navbar />
-            <SectionTitle  title="Contact Us !">
+            <SectionTitle className = "z-20"  title="Contact Us !">
                 Get in touch and let us know how we can help.
             </SectionTitle>
             {/* <Faq /> */}
-            <Cta />
+            <Cta className = "z-20"/>
             <Footer />
             {/* <PopupWidget /> */}
         </>

@@ -14,13 +14,15 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import logoDark from '../images/nav-dark-logo.png';
 import logoLight from '../images/nav-light-logo.png';
 import ChevronUpDownIcon from '@heroicons/react/24/solid';
+import banner from '../public/img/web-banner1.png';
+import mobBanner from '../public/img/mobile-banner.png';
 
 import { useTheme } from 'next-themes';
 import { ChevronUpIcon } from '@heroicons/react/24/solid';
 
 const Navbar = () => {
-  const navigation = ["About Us", "Product", "Service", "Contact", "Blog"];
-  const Mobnavigation = ["About Us", "Product", "Contact", "Blog"];
+  const navigation = ["About Us", "Product", "Service", "Contact"];
+  const Mobnavigation = ["About Us", "Product", "Contact"];
   const [open, setOpen] = React.useState(false);
 
 
@@ -48,8 +50,8 @@ const Navbar = () => {
 
 
   return (
-    <div className="w-full z-20 relative">
-      <nav className="container relative flex flex-wrap items-center justify-between mx-auto lg:justify-between xl:px-0">
+    <div className="w-full relative">
+      <nav className="  z-20 container relative flex flex-wrap items-center justify-between mx-auto lg:justify-between xl:px-0">
         {/* Logo */}
         <Disclosure>
           {({ open }) => (
@@ -215,10 +217,16 @@ const Navbar = () => {
             Admin Login
           </Link>
 
-          <ThemeChanger />
+          {/* <ThemeChanger /> */}
         </div>
 
       </nav>
+      <div className="absolute top-0 right-0 inset-0 min-w-full h-full">
+    <Image alt= '' className="hidden max-w-screen min-h-600 object-right md:inline-block z-0 h-600 md:h-auto md:object-cover md:max-w-none right-0 absolute" src={banner}></Image>
+    <Image  alt = '' className="md:hidden z-0 md:h-auto md:object-cover w-full right-0 absolute" src={mobBanner}></Image>
+    
+    {/* <div  className="absolute top-0 left-0 z-20 h-600 sm:h-auto bg-cover" style={{backgroundImage : `url(${banner})`}}> */}
+    </div>
     </div>
   );
 };

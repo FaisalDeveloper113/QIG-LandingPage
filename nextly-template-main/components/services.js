@@ -39,7 +39,7 @@ const Feature = () => {
     };
     const cardStyle1 = {
         maxWidth: 400,
-        minWidth: 400,
+        minWidth: 330,
         minHeight: 600,
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         marginRight: '1em',
@@ -49,7 +49,7 @@ const Feature = () => {
 
     const cardStyle2 = {
         maxWidth: 400,
-        minWidth: 400,
+        minWidth: 330,
         minHeight: 600,
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         marginRight: '1em',
@@ -58,7 +58,7 @@ const Feature = () => {
     };
     const cardStyle3 = {
         maxWidth: 400,
-        minWidth: 400,
+        minWidth: 330,
         minHeight: 600,
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         marginRight: '1em',

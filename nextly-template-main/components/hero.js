@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Container from "./container";
-import heroImg from "../public/img/hero.png";
+import heroImg from "../public/img/Laptop-Mockup.png";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+
+
 const Hero = () => {
 
   const slideUpVariants = {
@@ -20,10 +22,12 @@ const Hero = () => {
 
   return (
     <>
+  
+    
       <br></br>
       <br></br>
       <Container className="flex flex-wrap ">
-        <div className="flex items-center w-full lg:w-1/2">
+        <div className="flex items-center w-full lg:w-1/2 z-10">
           <div className="max-w-2xl mb-8">
             <motion.div
            
@@ -31,10 +35,10 @@ const Hero = () => {
               animate="animate"
               variants={slideUpVariants}
               transition={{ duration: 0.8 }}>
-              <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+              <h1 className="z-10 text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
                 Accelerate Your Trading Journey with QIG
               </h1>
-              <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
+              <p className="z-10 py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
                 Elevate your trading strategy with Quant Investments Group (QIG), which offers personalized programming solutions. We ensure our customers experience the convenience and efficiency of automated trading while retaining complete control. QIG with its passionate team of software developers, engineers, and financial experts possesses in-depth knowledge of the trading industry. The team of experts uses their years of experience and expertise, in creating robust and intelligent trading bot solutions that cater to the unique needs of our clients.
               </p>
             </motion.div>
@@ -67,7 +71,7 @@ const Hero = () => {
             </div> */}
           </div>
         </div>
-        <div className="flex items-center justify-center w-full lg:w-1/2">
+        <div className="z-10 flex items-center justify-center w-full lg:w-1/2">
           <motion.div
             initial="initial"
             animate="animate"
@@ -75,9 +79,11 @@ const Hero = () => {
             transition={{ duration: 1.0 }}>
             <div className="">
               <Image
+              
                 src={heroImg}
-                width="616"
-                height="617"
+                aria-hidden="true"
+                width="816"
+                height="817"
                 className={"object-cover"}
                 alt="Hero Illustration"
                 loading="eager"
