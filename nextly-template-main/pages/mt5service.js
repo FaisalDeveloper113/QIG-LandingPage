@@ -27,7 +27,7 @@ const mt5Service = () => {
     const [isHovered2, setIsHovered2] = useState(false);
     const cardStyle2 = {
         maxWidth: 400,
-        minWidth: 400,
+        minWidth: 330,
         minHeight: 500,
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         marginRight: '1em',
@@ -77,7 +77,7 @@ const mt5Service = () => {
 
             <Navbar />
             <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
-                <div className=" darks:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px' }}>
+                <div className="relative z-20 darks:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px', marginTop:'200px'  }}>
                     <div className="grid grid-cols-3 gap-4 text-center  dark:bg-trueGray-800" >
                         
                             <div className="p-4 col-span-3  dark:bg-trueGray-800">
