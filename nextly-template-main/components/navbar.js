@@ -217,7 +217,7 @@ const Navbar = () => {
             Admin Login
           </Link>
 
-          {/* <ThemeChanger /> */}
+          <ThemeChanger />
         </div>
 
       </nav>
