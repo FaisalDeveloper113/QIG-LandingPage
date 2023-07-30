@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme('dark');
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), []);
