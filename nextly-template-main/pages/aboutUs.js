@@ -26,7 +26,7 @@ const aboutUs = () => {
 
             <Navbar />
             <Container  >
-                <h1 style = {{marginTop:'150px'}} className="z-index relative mt-100 text-center text-6xl font-bold leading-snug tracking-tight lg:text-8xl lg:leading-tight xl:text-8xl xl:leading-tight text-white">
+                <h1 style = {{marginTop:'150px'}} className="z-index relative mt-100 text-center text-6xl font-bold leading-snug tracking-tight text-gray-800 lg:text-8xl lg:leading-tight xl:text-8xl xl:leading-tight dark:text-white">
                     About Us
                 </h1>
             </Container>

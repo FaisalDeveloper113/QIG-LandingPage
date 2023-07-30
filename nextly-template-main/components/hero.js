@@ -24,8 +24,8 @@ const Hero = () => {
     <>
   
     
-      
-      
+      <br></br>
+      <br></br>
       <Container className="flex flex-wrap ">
         <div className="flex items-center w-full lg:w-1/2 z-10">
           <div className="max-w-2xl mb-8">
@@ -35,16 +35,11 @@ const Hero = () => {
               animate="animate"
               variants={slideUpVariants}
               transition={{ duration: 0.8 }}>
-              <h1 className="z-10 text-3xl font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight text-white">
+              <h1 className="z-10 text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
                 Accelerate Your Trading Journey with QIG
               </h1>
-<<<<<<< Updated upstream
               <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
                 Elevate your trading strategy with Quant Investments Group (QIG), which offers personalized programming solutions.
-=======
-              <p className="z-10 py-5 text-xl leading-normal  lg:text-xl xl:text-2xl text-gray-300">
-                Elevate your trading strategy with Quant Investments Group (QIG), which offers personalized programming solutions..
->>>>>>> Stashed changes
               </p>
             </motion.div>
             {/* <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
