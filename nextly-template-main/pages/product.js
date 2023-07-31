@@ -11,11 +11,11 @@ const Product = () => {
             "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686148202600-IFL1VG8JMMF5YRR9J3LH/Screenshot+2023-06-06+183103.png?format=750w",
         brand: {
             id: 1,
-            name: "QUANTFARMING ULTIMATE TRADING INDICATOR"
+            name: "Trend Indicator"
         },
-        price: 499,
-        formattedPrice: "$499",
-        description: "Saves you time and effort by automating your trading strategy, allowing you to focus on other aspects of your trading approach"
+        price: 299,
+        formattedPrice: "$299",
+        description: "Trend Guidance Indicator (Tradingview/MT4): Eyes  from  the sky, understand where the market is heading!(Use 4 hr angle)"
     };
     const productInfo2 = {
         image:
@@ -24,18 +24,22 @@ const Product = () => {
             id: 2,
             name: "Momemtum (EMA Crossover)"
         },
-        price: 799,
-        formattedPrice: "$799"
+        price: 899,
+        formattedPrice: "$899",
+        description: "Trade Based on 2 EMA Cross over"
+
     };
     const productInfo3 = {
         image:
             "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686147656602-TBLPVN9YQ3P6BFBXIXTO/Screenshot+2023-06-07+071932.png?format=750w",
         brand: {
             id: 2,
-            name: "Mean Reversion (Rsi Cross below and above)"
+            name: "Mean Reversion (Rsi Cross below and above)",
+
         },
-        price: 1499,
-        formattedPrice: "$1499"
+        price: 899,
+        formattedPrice: "$899",
+        description: "RSI Strength based Algorithm"
     };
     const productInfo4 = {
         image:
@@ -44,14 +48,28 @@ const Product = () => {
             id: 2,
             name: "Risk Management"
         },
-        price: 1299,
-        formattedPrice: "$1299"
+        price: 499,
+        formattedPrice: "$499",
+        description: "% account loss, or pip loss for hedging or SL to enable"
     };
-    
+
+    const productInfo5 = {
+        image:
+            "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686147656602-TBLPVN9YQ3P6BFBXIXTO/Screenshot+2023-06-07+071932.png?format=750w",
+        brand: {
+            id: 2,
+            name: "Ultimate Trading System (Management)"
+        },
+        price: 699,
+        formattedPrice: "$699",
+        description: "Trailing Stop and Take Profit Software   (Metatrader): 3 TPs, Risk Management Software, 2 Trailing SL’s and Account Management"
+
+    };
+
     return (
         <>
             <Head>
-                <title>Quant Investments Group</title>
+                <title>Quant Farming</title>
                 <meta
                     name="description"
                     content="Algo Trading Experts"
@@ -75,11 +93,13 @@ const Product = () => {
                 //     marginRight: '5rem',
                 // }}
                 >
-                    <div className="flex-1" ><RecipeReviewCard  {...productInfo} /></div>
+                    <div className="flex-1" ><RecipeReviewCard  {...productInfo3} /></div>
                     <div className="flex-1"><RecipeReviewCard  {...productInfo2} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo3} /></div>
                     <div className="flex-1"><RecipeReviewCard  {...productInfo4} /></div>
+                    <div className="flex-1"><RecipeReviewCard  {...productInfo5} /></div>
+                    <div className="flex-1"><RecipeReviewCard  {...productInfo} /></div>
                 </div>
+                {/*
                 <div className="flex justify-center items-center">
                     <div className="w-80 bg-trueGray-100 dark:bg-trueGray-800 shadow-lg rounded-lg p-6">
                         <h2 className="text-2xl font-semibold mb-4">Monthly Subscription</h2>
@@ -107,6 +127,7 @@ const Product = () => {
                         <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-3xl w-full">Subscribe</button>
                     </div>
                 </div>
+                */}
             </Container>
 
 

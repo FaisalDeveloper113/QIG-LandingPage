@@ -16,7 +16,7 @@ const aboutUs = () => {
     return (
         <>
             <Head>
-                <title>Quant Investments Group</title>
+                <title>Quant Farming</title>
                 <meta
                     name="description"
                     content="Algo Trading Experts"

@@ -36,10 +36,10 @@ const Hero = () => {
               variants={slideUpVariants}
               transition={{ duration: 0.8 }}>
               <h1 className="z-10 text-3xl font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight text-white">
-                Accelerate Your Trading Journey with QIG
+                Accelerate Your Trading Journey with Quant Farming
               </h1>
               <p className="z-10 py-5 text-xl leading-normal  lg:text-xl xl:text-2xl text-gray-300">
-                Elevate your trading strategy with Quant Investments Group (QIG), which offers personalized programming solutions..
+                Grow your trading strategy with Quant Farming, which offers personalized programming solutions..
               </p>
             </motion.div>
             {/* <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">

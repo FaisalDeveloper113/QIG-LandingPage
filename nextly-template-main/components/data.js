@@ -11,8 +11,8 @@ import benefitOneImg from "../public/img/benefit-one.png";
 import benefitTwoImg from "../public/img/benefit-two.png";
 
 const benefitOne = {
-  title: "Tailored Solutions to Meet Your Needs",
-  desc: "QIG guarantees prompt and efficient trade execution, capitalizing on favorable market conditions and minimizing delays for optimal entry and exit points.",
+  title: "Empower Your Trades with Quant Farming",
+  desc: "Quant Farming guarantees prompt and efficient trade execution, capitalizing on favorable market conditions and minimizing delays for optimal entry and exit points.",
   image: benefitOneImg,
   bullets: [
     {
@@ -21,31 +21,31 @@ const benefitOne = {
       icon: <FaceSmileIcon />,
     },
     {
-      title: "Smart Contracts",
-      desc: "Unlock the potential of blockchain technology with our expert smart contract code solutions. Streamline transactions, enhance security, and automate processes with our cutting-edge development expertise.",
+      title: "Expert Advisors",
+      desc: "Our Expert Advisors are intelligent and automated allies designed to enhance your trading experience. Powered by advanced algorithms, they analyze market trends, execute trades, and manage risks efficiently, eliminating human emotions from the equation.",
       icon: <ChartBarSquareIcon />,
     },
     {
-      title: "Decentralized Finance ",
-      desc: "Experience the future of finance with our decentralized finance (DeFi) solutions. Seamlessly navigate the world of blockchain-based financial applications, leverage decentralized exchanges, yield farming, and liquidity provision to unlock new opportunities and take control of your financial destiny.",
+      title: "Indicators ",
+      desc: "We specialize in crafting cutting-edge solutions for Indicators, empowering traders and investors with data-driven insights for smarter decision-making. Harness the power of our expertise to optimize your strategies and stay ahead in the dynamic financial landscape.",
       icon: <CursorArrowRaysIcon />,
     },
     {
-      title: "Your Complete Web Solution",
-      desc: "Elevate your online presence with our comprehensive MERN (MongoDB, Express.js, React.js, Node.js) stack web development solutions. From captivating front-end design to robust back-end functionality, we deliver dynamic and scalable websites tailored to meet your business needs.",
+      title: "Account Management",
+      desc: "Trust your financial success to our expert Account Management services. With a focus on risk management and tailored strategies, we diligently oversee and grow your investment portfolio. Our seasoned professionals navigate the markets, making informed decisions to optimize returns while preserving capital. ",
       icon: <CursorArrowRaysIcon />,
     },
   ],
 };
 
 const benefitTwo = {
-  title: "Discover the Advantages of Choosing QIG",
-  desc: "Using QIG as your partner in this journey allows you to experience numerous advantages. Our trading system involves the automation of trade order generation, placement, and execution, eliminating the need for manual intervention. A few more reasons why to choose us:",
+  title: "Discover the Advantages of Choosing Quant Farming",
+  desc: "Using Quant Farming as your partner in this journey allows you to experience numerous advantages. Our trading system involves the automation of trade order generation, placement, and execution, eliminating the need for manual intervention. A few more reasons why to choose us:",
   image: benefitTwoImg,
   bullets: [
     {
       title: "High Execution",
-      desc: "QIG guarantees prompt and efficient trade execution, capitalizing on favorable market conditions and minimizing delays for optimal entry and exit points.",
+      desc: "Quant Farming guarantees prompt and efficient trade execution, capitalizing on favorable market conditions and minimizing delays for optimal entry and exit points.",
       icon: <DevicePhoneMobileIcon />,
     },
     {
@@ -55,7 +55,7 @@ const benefitTwo = {
     },
     {
       title: "Customer support",
-      desc: "QIG provides personalized customer support, offering guidance, assistance, and prompt resolution of queries to ensure a smooth and satisfying trading experience for users.",
+      desc: "Quant Farming provides personalized customer support, offering guidance, assistance, and prompt resolution of queries to ensure a smooth and satisfying trading experience for users.",
       icon: <SunIcon />,
     },
   ],
