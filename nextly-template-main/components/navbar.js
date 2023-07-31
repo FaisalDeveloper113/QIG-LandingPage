@@ -21,8 +21,8 @@ import { useTheme } from 'next-themes';
 import { ChevronUpIcon } from '@heroicons/react/24/solid';
 
 const Navbar = () => {
-  const navigation = ["About Us", "Product", "Service", "Contact", "Blog"];
-  const Mobnavigation = ["About Us", "Product", "Contact", "Blog"];
+  const navigation = ["About Us", "Algos", "Create", "Contact", "Blog"];
+  const Mobnavigation = ["About Us", "Algos", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
 
 
@@ -113,7 +113,7 @@ const Navbar = () => {
                       <Link
                         key={index}
                         href={
-                          item.toLowerCase() === "product"
+                          item.toLowerCase() === "algos"
                             ? "/product"
                             : item.toLowerCase() === "about us"
                               ? "/aboutUs"
@@ -132,7 +132,7 @@ const Navbar = () => {
                       {({ open }) => (
                         <>
                           <Disclosure.Button className="flex w-full rounded-md text-gray-300 mt-1">
-                            <p>Service</p>
+                            <p>Create</p>
                             <ChevronUpIcon
                               className={`${open ? 'rotate-180 transform' : ''
                                 } ml-5 h-5 w-5 `}
@@ -167,11 +167,11 @@ const Navbar = () => {
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             {navigation.map((menu, index) => (
               <li className="mr-3 nav__item" key={index}
-                onMouseEnter={menu.toLowerCase() === 'service' ? handleMouseEnter : null}
-                onMouseLeave={menu.toLowerCase() === 'service' ? handleMouseLeave : null}>
+                onMouseEnter={menu.toLowerCase() === 'create' ? handleMouseEnter : null}
+                onMouseLeave={menu.toLowerCase() === 'create' ? handleMouseLeave : null}>
                 <Link
                   href={
-                    menu.toLowerCase() === "product"
+                    menu.toLowerCase() === "algos"
                       ? "/product"
                       : menu.toLowerCase() === "about us"
                         ? "/aboutUs"
@@ -183,9 +183,9 @@ const Navbar = () => {
                   }
                   className="inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
-                  {menu}{menu.toLowerCase() === 'service' && <ArrowDropDownIcon />}
+                  {menu}{menu.toLowerCase() === 'create' && <ArrowDropDownIcon />}
                 </Link>
-                {showDropdown && menu.toLowerCase() == 'service' && (
+                {showDropdown && menu.toLowerCase() == 'create' && (
 
                   <div className="dropdown shadow-2xl bg-trueGray-800 text-gray-200"
                     style={{

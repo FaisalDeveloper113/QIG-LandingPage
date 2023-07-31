@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Quant Investments Group</title>
+        <title>Quant Farming</title>
         <meta
           name="description"
           content="Algo Trading Experts"
@@ -61,6 +61,7 @@ const Home = () => {
       </SectionTitle> */}
       <Benefits data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />
+       {/*
       <SectionTitle
         pretitle="Watch a video"
         title="Learn how to fullfil your needs">
@@ -76,6 +77,7 @@ const Home = () => {
         className="square"
       >
         <Video /></motion.div>
+        */}
       <SectionTitle
         pretitle="Testimonials"
         title="Here's what our customers said">

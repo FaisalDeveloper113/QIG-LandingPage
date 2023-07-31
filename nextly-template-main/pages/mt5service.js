@@ -67,7 +67,7 @@ const mt5Service = () => {
     return (
         <>
             <Head>
-                <title>Quant Investments Group</title>
+                <title>Quant Farming</title>
                 <meta
                     name="description"
                     content="Algo Trading Experts"
@@ -86,8 +86,7 @@ const mt5Service = () => {
                             animate="animate"
                             variants={slideUpVariants}
                             transition={{ duration: 0.8 }}>
-                                <h2 className="text-2xl font-bold">Benefits of Our Breakout Trading Bot:</h2>
-                                <p>Our Breakout Trading Bot offers a wide range of benefits for traders of all levels. </p>
+                                <h2 className="text-2xl font-bold">Benefits of Our Metatrader 5 Development</h2>
                                 </motion.div>
                             </div>
                         

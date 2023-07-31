@@ -13,7 +13,7 @@ const Testimonials  = () => {
         <div className="lg:col-span-2 xl:col-auto">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-            Among the various automated trading platforms I've explored, none can rival the unmatched quality of QIG. The user-friendly interface, superb customer support, and consistently profitable outcomes make it the ultimate choice for any serious trader.</p>
+            Among the various automated trading platforms I've explored, none can rival the unmatched quality of Quant Farming. The user-friendly interface, superb customer support, and consistently profitable outcomes make it the ultimate choice for any serious trader.</p>
 
             <Avatar
               image={userOneImg}
@@ -38,7 +38,7 @@ const Testimonials  = () => {
         <div className="">
           <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-            The transparency and accuracy exhibited by QIG  have left me astounded. Their performance reports align flawlessly with my own results, and their unwavering commitment to honesty and ethical practices is highly commendable.
+            The transparency and accuracy exhibited by Quant Farming  have left me astounded. Their performance reports align flawlessly with my own results, and their unwavering commitment to honesty and ethical practices is highly commendable.
             </p>
 
             <Avatar

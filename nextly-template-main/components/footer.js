@@ -22,12 +22,12 @@ export default function Footer() {
                       height="70"
                       className=""
                     />
-                  <span>QIG</span>
+                  <span>Quant Farming</span>
               </Link>
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-            QIG aims to leverage technology to increase efficiency, reduce human error, and execute trades at optimal prices and timings. There are more reasons to utilize our trading system for improved and better trading experience.
+            Quant Farming aims to leverage technology to increase efficiency, reduce human error, and execute trades at optimal prices and timings. There are more reasons to utilize our trading system for improved and better trading experience.
             </div>
 
             {/* <div className="mt-5">
@@ -112,10 +112,10 @@ export default function Footer() {
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
           Copyright © {new Date().getFullYear()}. Made  by{" "}
           <a
-            href="https://web3templates.com/"
+            //href="https://web3templates.com/"
             target="_blank"
             rel="noopener">
-            Quant Investments Group.
+            Quant Farming.
           </a>{" "}
         
          
