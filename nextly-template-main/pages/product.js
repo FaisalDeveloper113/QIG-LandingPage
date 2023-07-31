@@ -93,11 +93,11 @@ const Product = () => {
                 //     marginRight: '5rem',
                 // }}
                 >
-                    <div className="flex-1" ><RecipeReviewCard  {...productInfo3} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo2} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo4} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo5} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo} /></div>
+                    <div className="flex-1 transition-transform transform hover:scale-105 duration-500" ><RecipeReviewCard  {...productInfo3} /></div>
+                    <div className="flex-1 transition-transform transform hover:scale-105 duration-500"><RecipeReviewCard  {...productInfo2} /></div>
+                    <div className="flex-1 transition-transform transform hover:scale-105 duration-500"><RecipeReviewCard  {...productInfo4} /></div>
+                    <div className="flex-1 transition-transform transform hover:scale-105 duration-500"><RecipeReviewCard  {...productInfo5} /></div>
+                    <div className="flex-1 transition-transform transform hover:scale-105 duration-500"><RecipeReviewCard  {...productInfo} /></div>
                 </div>
                 {/*
                 <div className="flex justify-center items-center">

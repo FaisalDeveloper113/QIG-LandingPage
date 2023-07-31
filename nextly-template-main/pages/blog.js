@@ -19,24 +19,25 @@ const blog = ({ blogs }) => {
 
             <Navbar />
             <Container  >
-                <h1 style={{ marginTop: '150px' }} className="z-index relative mt-100 text-center text-6xl font-bold leading-snug tracking-tight text-gray-800 lg:text-8xl lg:leading-tight xl:text-8xl xl:leading-tight dark:text-white">
+                <h1 style={{ marginTop: '150px' }} className="z-index relative mt-100 text-center text-6xl font-bold leading-snug tracking-tigh lg:text-8xl lg:leading-tight xl:text-8xl xl:leading-tight text-white">
                     Blogs
                 </h1>
             </Container>
-            <div  className="flex justify-center items-center">
-            <main className="relative scontainer mx-auto mt-8">
-           
-                {blogs.map((blog, index) => (
-                    
-                        <div key={index} className="bg-trueGray-800 shadow-lg rounded-lg p-6 m-2 max-w-6xl">
-                            <h2 className="text-xl font-semibold mb-4">{blog.title}</h2>
-                            <p className="text-gray-600">{blog.content}</p>
-                            <a href="#" className="mt-4 block text-blue-500">Read More</a>
+            <div className="flex justify-center items-center bg-white dark:bg-trueGray-800 pb-20">
+                <main className="relative top-44 bg-white dark:bg-trueGray-800 min-h-screen py-8">
+                    <div className="container mx-auto max-w-6xl">
+                        <div className="grid gap-4 ">
+                            {blogs.map((blog, index) => (
+                                <div key={index} className="bg-white dark:bg-trueGray-800 shadow-lg rounded-lg p-6 max-w-6xl">
+                                    <h2 className="text-xl font-semibold text-black dark:text-white mb-4">{blog.title}</h2>
+                                    <p className="text-black dark:text-gray-400 text-justify">{blog.content}</p>
+                                    <a href="#" className="mt-4 block text-blue-500">Read More</a>
+                                </div>
+                            ))}
                         </div>
-                    
-                ))}
-              
-            </main>
+                    </div>
+                </main>
+
             </div>
             <Footer />
         </>
