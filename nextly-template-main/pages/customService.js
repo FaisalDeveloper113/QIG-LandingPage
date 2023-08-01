@@ -99,7 +99,7 @@ const customService = () => {
                             <div className="flex-1 p-4">
 
                                 <Card
-                                    className="dark:bg-black"
+                                    className="dark:bg-black mb-8"
                                     sx={cardStyle2}
                                     variant='outlined'
                                     onMouseEnter={handleMouseEnter2}
@@ -171,6 +171,9 @@ const customService = () => {
                                         </div>
                                     </CardContent>
                                 </Card>
+                                <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Click here to fill the form
+        </a>
                             </div>
                         </motion.div>
                         <motion.div
@@ -240,7 +243,7 @@ const customService = () => {
                             <div className="flex-1 p-4">
 
                                 <Card
-                                    className="dark:bg-black"
+                                    className="dark:bg-black mb-8"
                                     sx={cardStyle2}
                                     variant='outlined'
                                     onMouseEnter={handleMouseEnter2}
@@ -312,6 +315,9 @@ const customService = () => {
                                         </div>
                                     </CardContent>
                                 </Card>
+                                <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Click here to fill the form
+        </a>
                             </div>
                         </motion.div>
                     </div>
