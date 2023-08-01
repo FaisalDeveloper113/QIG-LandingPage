@@ -8,26 +8,26 @@ export default function Footer() {
   const navigation = ["Product", "Service", "Contact", "Blog"];
   const legal = ["Terms", "Privacy", "Legal"];
   return (
-    <div className="relative bg-gray-100 dark:bg-trueGray-800">
+    <div className="relative bg-gray-100 dark:bg-trueGray-900">
       <Container>
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div>
               {" "}
               <Link href="/" className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
-                    <Image
-                      src={logo}
-                      alt="N"
-                      width="70"
-                      height="70"
-                      className=""
-                    />
-                  <span>Quant Farming</span>
+                <Image
+                  src={logo}
+                  alt="N"
+                  width="70"
+                  height="70"
+                  className=""
+                />
+                <span>Quant Farming</span>
               </Link>
             </div>
 
             <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-            Quant Farming aims to leverage technology to increase efficiency, reduce human error, and execute trades at optimal prices and timings. There are more reasons to utilize our trading system for improved and better trading experience.
+              Quant Farming aims to leverage technology to increase efficiency, reduce human error, and execute trades at optimal prices and timings. There are more reasons to utilize our trading system for improved and better trading experience.
             </div>
 
             {/* <div className="mt-5">
@@ -50,17 +50,17 @@ export default function Footer() {
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {navigation.map((item, index) => (
                 <Link
-                key={index}
-                href={
-                  item.toLowerCase() === "product"
-                    ? "/product"
-                    : item.toLowerCase() === "service"
-                    ? "/service" 
-                    : item.toLowerCase() === "contact"
-                    ? "/contact"
-                    : "/"
-                } className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700">                 
-                    {item}
+                  key={index}
+                  href={
+                    item.toLowerCase() === "product"
+                      ? "/product"
+                      : item.toLowerCase() === "service"
+                        ? "/service"
+                        : item.toLowerCase() === "contact"
+                          ? "/contact"
+                          : "/"
+                  } className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700">
+                  {item}
                 </Link>
               ))}
             </div>
@@ -68,8 +68,8 @@ export default function Footer() {
           <div>
             <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
               {legal.map((item, index) => (
-                <Link key={index} href="/" className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700">      
-                    {item}
+                <Link key={index} href="/" className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700">
+                  {item}
                 </Link>
               ))}
             </div>
@@ -117,8 +117,8 @@ export default function Footer() {
             rel="noopener">
             Quant Farming.
           </a>{" "}
-        
-         
+
+
         </div>
       </Container>
       {/* Do not remove this */}
@@ -199,7 +199,7 @@ const Backlink = () => {
     //   <span>Web3Templates</span>
     // </a>
     <div>
-      
+
     </div>
   );
 };

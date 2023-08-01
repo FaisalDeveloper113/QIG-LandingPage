@@ -3,9 +3,14 @@ import Hero from "../components/hero";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Container from "../components/container";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 import RecipeReviewCard from "../components/products";
 const Product = () => {
+    const [ref, inView] = useInView();
+    const controls = useAnimation();
     const productInfo = {
         image:
             "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686148202600-IFL1VG8JMMF5YRR9J3LH/Screenshot+2023-06-06+183103.png?format=750w",
@@ -65,7 +70,19 @@ const Product = () => {
         description: "Trailing Stop and Take Profit Software   (Metatrader): 3 TPs, Risk Management Software, 2 Trailing SL’s and Account Management"
 
     };
-
+    useEffect(() => {
+        if (inView) {
+            controls.start("visible");
+        }
+    }, [controls, inView]);
+    const squareVariants = {
+        visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+        hidden: { opacity: 0, scale: 0.5 }
+    };
+    const slideRightVariants = {
+        initial: { x: 250, opacity: 0 },
+        animate: { x: 0, opacity: 1 },
+    };
     return (
         <>
             <Head>
@@ -93,11 +110,53 @@ const Product = () => {
                 //     marginRight: '5rem',
                 // }}
                 >
-                    <div className="flex-1" ><RecipeReviewCard  {...productInfo3} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo2} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo4} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo5} /></div>
-                    <div className="flex-1"><RecipeReviewCard  {...productInfo} /></div>
+                    <motion.div
+                        initial="initial"
+                        animate="animate"
+                        variants={slideRightVariants}
+                        transition={{ duration: 1.0 }}>
+                        <div className="flex-1 transition-transform transform hover:scale-105 duration-500" >
+                            <RecipeReviewCard  {...productInfo3} />
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        initial="initial"
+                        animate="animate"
+                        variants={slideRightVariants}
+                        transition={{ duration: 1.5 }}>
+                        <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
+                            <RecipeReviewCard  {...productInfo2} />
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        initial="initial"
+                        animate="animate"
+                        variants={slideRightVariants}
+                        transition={{ duration: 2.0 }}>
+                        <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
+                            <RecipeReviewCard  {...productInfo4} />
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        ref={ref}
+                        animate={controls}
+                        initial="hidden"
+                        variants={squareVariants}
+                        className="square">
+                        <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
+                            <RecipeReviewCard  {...productInfo5} />
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        ref={ref}
+                        animate={controls}
+                        initial="hidden"
+                        variants={squareVariants}
+                        className="square">
+                        <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
+                            <RecipeReviewCard  {...productInfo} />
+                        </div>
+                    </motion.div>
                 </div>
                 {/*
                 <div className="flex justify-center items-center">
