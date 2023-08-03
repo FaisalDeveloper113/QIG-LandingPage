@@ -26,15 +26,17 @@ const blog = ({ blogs }) => {
             <div className="flex justify-center items-center bg-white dark:bg-trueGray-800 pb-20">
                 <main className="relative top-44 bg-white dark:bg-trueGray-800 min-h-screen py-8">
                     <div className="container mx-auto max-w-6xl">
-                        <div className="grid gap-4 ">
+                        <div className="grid gap-4 md:grid-cols-3">
                             {blogs.map((blog, index) => (
-                                <div key={index} className="bg-white dark:bg-trueGray-800 shadow-lg rounded-lg p-6 max-w-6xl">
-                                    <h2 className="text-xl font-semibold text-black dark:text-white mb-4">{blog.title}</h2>
-                                    <p className="text-black dark:text-gray-400 text-justify">{blog.content}</p>
-                                    <a href="#" className="mt-4 block text-blue-500">Read More</a>
+                                <div key={index} className="  bg-gradient-to-r from-gray-900 via-sky-950 to-sky-950 dark:bg-trueGray-800 shadow-lg rounded-lg p-6 max-w-6xl bg-opacity-0">
+                                    <h2 className="text-xl font-semibold text-white mb-4">{blog.title}</h2>
+                                    <p className="text-gray-400 text-justify">{blog.content}</p>
+                                    <a href="#" className="mt-4 block text-yellow-500">Read More</a>
                                 </div>
                             ))}
                         </div>
+
+
                     </div>
                 </main>
 
