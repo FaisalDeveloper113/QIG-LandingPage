@@ -1,10 +1,86 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 
 import Divider from '@mui/material/Divider';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+const axios = require('axios');
 
 const ProductCard = (props) => {
     const { image, description, brand, formattedPrice } = props;
+    const [showPayPalButtons, setShowPayPalButtons] = useState(false);
+
+    useEffect(() => {
+        const loadPayPalSDK = async () => {
+          const script = document.createElement('script');
+          script.src = 'https://www.paypal.com/sdk/js?client-id=ATP98nmGlWaVc94673pYwwecXCWE6um7pSH3wey6NaONBrLZ6P3w9hl-FTHT293NxZeDU43fEIT-cFZy';
+          script.async = true;
+          
+          const loadScript = new Promise((resolve) => {
+            script.onload = resolve;
+          });
+      
+          document.body.appendChild(script);
+          await loadScript;
+          
+          // PayPal SDK has loaded, render the PayPal Smart Payment Buttons
+          console.log("Setting is true")
+          setShowPayPalButtons(true);
+        };
+      
+        loadPayPalSDK();
+      }, []);
+
+    const createOrder = async () => {
+        const url = 'http://localhost:8000/create-paypal-order'; // Replace with your desired endpoint
+        const data = {
+            key1: 'value1',
+            key2: 'value2',
+            // Add more data as needed for your API endpoint
+        };
+
+        try {
+            const response = await axios.post(url, data);
+            console.log('Post request successful:', response.data.id)
+            setShowPayPalButtons(true);
+            return response.data.id;
+            // Do something with the response data
+        } catch (error) {
+            console.error('Error making POST request:', error.message);
+            // Handle the error
+        }
+    }
+
+    const onApprove = (data, actions) => {
+        // Handle the approved payment here, e.g., show a success message
+        console.log('Payment approved:', data);
+    };
+
+    const onCancel = (data) => {
+        // Handle the payment cancellation here, e.g., show a cancellation message
+        console.log('Payment cancelled:', data);
+    };
+
+    const onError = (err) => {
+        // Handle payment errors here, e.g., show an error message
+        console.error('Payment error:', err);
+    };
+
+    const handleAddToCart = () => {
+        createOrder().then((orderId) => {
+            // Render the PayPal Smart Payment Buttons dynamically
+            if (window.paypal) {
+                window.paypal
+                    .Buttons({
+                        createOrder: (data, actions) => {
+                            return orderId;
+                        },
+                        onApprove: onApprove,
+                        onCancel: onCancel,
+                        onError: onError
+                    })
+                    .render('#paypal-button-container');
+            }
+        });
+    };
 
     return (
         <>
@@ -26,51 +102,24 @@ const ProductCard = (props) => {
                     <div className="flex-1 p-4 flex flex-row text-left">
                         <p className="flex-1 text-gray-500">Price</p>
                     </div>
-                    <Divider className = "bg-gray-600 ml-4"/>
+                    <Divider className="bg-gray-600 ml-4" />
                     <div className="flex-1 p-4 flex flex-row text-left">
                         <p className="flex-1 text-green-600 text-2xl" >{formattedPrice}</p>
                     </div>
                     <div className="flex-1 p-4 flex flex-row text-left">
                         <p className="flex-1 text-gray-500">Description</p>
                     </div>
-                    <Divider className = "bg-gray-600 ml-4"/>
+                    <Divider className="bg-gray-600 ml-4" />
                     <div className="flex-1 p-4 flex flex-row text-left">
                         <p >{description}</p>
                     </div>
                     <div className="flex-1 p-4 flex flex-row-reverse">
-                    <button className="bg-blue-500 text-white py-2 px-4 rounded-3xl"><ShoppingBasketIcon className="mr-2" />  Add to Cart</button>
+                        <button onClick={handleAddToCart} className="bg-blue-500 text-white py-2 px-4 rounded-3xl"><ShoppingBasketIcon className="mr-2" />  Add to Cart</button>
                     </div>
-
                 </div>
             </div>
+            {showPayPalButtons && <div id="paypal-button-container"></div>}
         </>
-        // <a
-        //     style={{
-        //         position: "relative",
-        //         alignItems: "center",
-        //         textAlign: "center",
-        //         width: "30rem",
-        //         height: "20rem", 
-        //         borderRadius: "10px",
-        //         overflow: "hidden",
-        //         boxShadow: "2px 2px 5px 0px rgba(0, 64, 128, 0.1)",
-        //     }}
-        //     href="#dolce-gabbana-cropped"
-        // >
-        //     <img
-        //         style={{
-        //             width: "100%",
-        //             height: "80%",
-        //         }}
-        //         src={image}
-        //     />
-        //     <p style={{ margin: "0.2rem 0", fontSize: "1rem", fontWeight: "bold", textTransform: "uppercase" ,color:"text.secondary" }}>{brand.name}</p>
-        //     <p style={{ fontWeight: "normal" }}>{description}</p>
-        //     <p style={{ fontWeight: "bold" }}>{formattedPrice}</p>
-        //     <span style={{ position: "absolute", top: "10px", right: "10px", borderRadius: "50%", height: "40px", width: "40px", border: "none", backgroundColor: "white", padding: "12px 10px 10px", boxShadow: "2px 2px 5px 0px rgba(0, 64, 128, 0.1)" }}>
-        //         <AddShoppingCartIcon style={{ color: "blue" }} />
-        //     </span>
-        // </a>
     );
 };
 
