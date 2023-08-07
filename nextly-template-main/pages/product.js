@@ -7,12 +7,15 @@ import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
-import CircularProgress from '@mui/material/CircularProgress';
-
 import RecipeReviewCard from "../components/products";
-
-
 const axios = require('axios');
+import dotenv from 'dotenv';
+import path from 'path';
+const envFilePath = path.resolve(__dirname, '../.env');
+dotenv.config({ path: envFilePath });
+const backend_url = "https://qig-dashboard.vercel.app";//process.env.NE4XT_PUBLIC_backend_url;
+const client_id = "ATP98nmGlWaVc94673pYwwecXCWE6um7pSH3wey6NaONBrLZ6P3w9hl-FTHT293NxZeDU43fEIT-cFZy";//process.env.NEXT_PUBLIC_client_id;
+
 const Product = () => {
     const [ref, inView] = useInView();
     const controls = useAnimation();
@@ -34,12 +37,12 @@ const Product = () => {
             setIsModalOpen(false);
             setSelectedProductInfo({});
         }
-      };
-    
+    };
+
     useEffect(() => {
         const loadPayPalSDK = async () => {
             const script = document.createElement('script');
-            script.src = 'https://www.paypal.com/sdk/js?client-id=ATP98nmGlWaVc94673pYwwecXCWE6um7pSH3wey6NaONBrLZ6P3w9hl-FTHT293NxZeDU43fEIT-cFZy';
+            script.src = `https://www.paypal.com/sdk/js?client-id=${client_id}`;
             script.async = true;
 
             const loadScript = new Promise((resolve) => {
@@ -48,31 +51,30 @@ const Product = () => {
 
             document.body.appendChild(script);
             await loadScript;
-
-            // PayPal SDK has loaded, render the PayPal Smart Payment Buttons
-            console.log("Setting is true")
-        
         };
 
         loadPayPalSDK();
     }, []);
 
     const createOrder = async (productInfo) => {
-        const url = 'http://localhost:8000/create-paypal-order'; // Replace with your desired endpoint
+        const url = `${backend_url}/create-paypal-order`; // Replace with your desired endpoint
+        console.log("URL : ", url);
         const data = {
-            key1: productInfo.brand.id,
-            key2: productInfo.brand.name,
+            id: productInfo.brand.id,
+            name: productInfo.brand.name,
+            price: productInfo.price,
             // Add more data as needed for your API endpoint
         };
-console.log(productInfo.brand.name);
+        //console.log("Create paypal order json: ",productInfo);
         try {
             const response = await axios.post(url, data);
-            console.log('Post request successful:', response.data.id)
-            setShowPayPalButtons(true);
+            console.log('Post request successful create-paypal-order:', response.data.id)
+            //setShowPayPalButtons(true);
             return response.data.id;
             // Do something with the response data
         } catch (error) {
-            console.error('Error making POST request:', error.message);
+            console.error('Error making POST create-paypal-order::', error.message);
+            console.log("URL : ", url);
             // Handle the error
         }
     }
@@ -94,22 +96,22 @@ console.log(productInfo.brand.name);
 
     useEffect(() => {
         if (isModalOpen) {
-          // Apply styles to the body element to prevent scrolling on the main window
-          document.body.style.overflow = 'hidden';
-          document.body.style.position = '';
-          document.body.style.width = '100%';
-          
+            // Apply styles to the body element to prevent scrolling on the main window
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = '';
+            document.body.style.width = '100%';
+
         } else {
-          // Reset the styles on the body element when the modal is closed
-          document.body.style.overflow = 'auto';
-          document.body.style.position = 'static';
-          document.body.style.width = 'auto';
+            // Reset the styles on the body element when the modal is closed
+            document.body.style.overflow = 'auto';
+            document.body.style.position = 'static';
+            document.body.style.width = 'auto';
         }
-      }, [isModalOpen]);
+    }, [isModalOpen]);
     const handleAddToCart = (productInfo) => {
-       
+
         createOrder(productInfo).then((orderId) => {
-            
+
             if (window.paypal) {
                 window.paypal
                     .Buttons({
@@ -233,19 +235,19 @@ console.log(productInfo.brand.name);
                             transform: 'translate(-50%, -50%)',
                             zIndex: '9999',
                             width: '70%',
-                            maxWidth:'800px',
+                            maxWidth: '800px',
                             backgroundColor: 'white',
-                            color:'black',
+                            color: 'black',
                             borderRadius: '8px',
                             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                             padding: '40px',
-                            placeItems:'center'
-                            
+                            placeItems: 'center'
+
 
 
                         }}
                     ><span className="absolute right-3 top-3 cursor-pointer font-weight-bold" onClick={handleModalClose}><CloseIcon /></span>
-                   
+
                     </div>}
                     <motion.div
                         initial="initial"
@@ -291,7 +293,7 @@ console.log(productInfo.brand.name);
                         variants={squareVariants}
                         className="square">
                         <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
-                            <RecipeReviewCard  {...productInfo} onBuyClick={() => handleCardBuyClick(productInfo)}/>
+                            <RecipeReviewCard  {...productInfo} onBuyClick={() => handleCardBuyClick(productInfo)} />
                         </div>
                     </motion.div>
                 </div>
