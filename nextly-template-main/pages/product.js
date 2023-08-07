@@ -5,12 +5,126 @@ import Footer from "../components/footer";
 import Container from "../components/container";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import CloseIcon from '@mui/icons-material/Close';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import RecipeReviewCard from "../components/products";
+
+
+const axios = require('axios');
 const Product = () => {
     const [ref, inView] = useInView();
     const controls = useAnimation();
+    const [selectedProductInfo, setSelectedProductInfo] = useState({});
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const handleCardBuyClick = (productInfo) => {
+        setIsModalOpen(true);
+        setSelectedProductInfo(productInfo);
+        //console.log(productInfo);
+        handleAddToCart(productInfo);
+    };
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        setSelectedProductInfo({});
+    };
+    const handleOverlayClick = (e) => {
+        if (e.target === e.currentTarget) {
+            setIsModalOpen(false);
+            setSelectedProductInfo({});
+        }
+      };
+    
+    useEffect(() => {
+        const loadPayPalSDK = async () => {
+            const script = document.createElement('script');
+            script.src = 'https://www.paypal.com/sdk/js?client-id=ATP98nmGlWaVc94673pYwwecXCWE6um7pSH3wey6NaONBrLZ6P3w9hl-FTHT293NxZeDU43fEIT-cFZy';
+            script.async = true;
+
+            const loadScript = new Promise((resolve) => {
+                script.onload = resolve;
+            });
+
+            document.body.appendChild(script);
+            await loadScript;
+
+            // PayPal SDK has loaded, render the PayPal Smart Payment Buttons
+            console.log("Setting is true")
+        
+        };
+
+        loadPayPalSDK();
+    }, []);
+
+    const createOrder = async (productInfo) => {
+        const url = 'http://localhost:8000/create-paypal-order'; // Replace with your desired endpoint
+        const data = {
+            key1: productInfo.brand.id,
+            key2: productInfo.brand.name,
+            // Add more data as needed for your API endpoint
+        };
+console.log(productInfo.brand.name);
+        try {
+            const response = await axios.post(url, data);
+            console.log('Post request successful:', response.data.id)
+            setShowPayPalButtons(true);
+            return response.data.id;
+            // Do something with the response data
+        } catch (error) {
+            console.error('Error making POST request:', error.message);
+            // Handle the error
+        }
+    }
+
+    const onApprove = (data, actions) => {
+        // Handle the approved payment here, e.g., show a success message
+        console.log('Payment approved:', data);
+    };
+
+    const onCancel = (data) => {
+        // Handle the payment cancellation here, e.g., show a cancellation message
+        console.log('Payment cancelled:', data);
+    };
+
+    const onError = (err) => {
+        // Handle payment errors here, e.g., show an error message
+        console.error('Payment error:', err);
+    };
+
+    useEffect(() => {
+        if (isModalOpen) {
+          // Apply styles to the body element to prevent scrolling on the main window
+          document.body.style.overflow = 'hidden';
+          document.body.style.position = '';
+          document.body.style.width = '100%';
+          
+        } else {
+          // Reset the styles on the body element when the modal is closed
+          document.body.style.overflow = 'auto';
+          document.body.style.position = 'static';
+          document.body.style.width = 'auto';
+        }
+      }, [isModalOpen]);
+    const handleAddToCart = (productInfo) => {
+       
+        createOrder(productInfo).then((orderId) => {
+            
+            if (window.paypal) {
+                window.paypal
+                    .Buttons({
+                        createOrder: (data, actions) => {
+                            return orderId;
+                        },
+                        onApprove: onApprove,
+                        onCancel: onCancel,
+                        onError: onError
+                    })
+                    .render('#paypal-button-container');
+            }
+        });
+    };
+
     const productInfo = {
         image:
             "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686148202600-IFL1VG8JMMF5YRR9J3LH/Screenshot+2023-06-06+183103.png?format=750w",
@@ -38,7 +152,7 @@ const Product = () => {
         image:
             "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686147656602-TBLPVN9YQ3P6BFBXIXTO/Screenshot+2023-06-07+071932.png?format=750w",
         brand: {
-            id: 2,
+            id: 3,
             name: "Mean Reversion (Rsi Cross below and above)",
 
         },
@@ -50,7 +164,7 @@ const Product = () => {
         image:
             "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686147656602-TBLPVN9YQ3P6BFBXIXTO/Screenshot+2023-06-07+071932.png?format=750w",
         brand: {
-            id: 2,
+            id: 4,
             name: "Risk Management"
         },
         price: 499,
@@ -62,7 +176,7 @@ const Product = () => {
         image:
             "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686147656602-TBLPVN9YQ3P6BFBXIXTO/Screenshot+2023-06-07+071932.png?format=750w",
         brand: {
-            id: 2,
+            id: 5,
             name: "Ultimate Trading System (Management)"
         },
         price: 699,
@@ -110,13 +224,36 @@ const Product = () => {
                 //     marginRight: '5rem',
                 // }}
                 >
+                    {isModalOpen && <div className="paypal-modal" id="paypal-button-container"
+                        style={{
+                            display: 'flex',
+                            position: 'fixed',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            zIndex: '9999',
+                            width: '70%',
+                            maxWidth:'800px',
+                            backgroundColor: 'white',
+                            color:'black',
+                            borderRadius: '8px',
+                            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                            padding: '40px',
+                            placeItems:'center'
+                            
+
+
+                        }}
+                    ><span className="absolute right-3 top-3 cursor-pointer font-weight-bold" onClick={handleModalClose}><CloseIcon /></span>
+                   
+                    </div>}
                     <motion.div
                         initial="initial"
                         animate="animate"
                         variants={slideRightVariants}
                         transition={{ duration: 1.0 }}>
                         <div className="flex-1 transition-transform transform hover:scale-105 duration-500" >
-                            <RecipeReviewCard  {...productInfo3} />
+                            <RecipeReviewCard  {...productInfo3} onBuyClick={() => handleCardBuyClick(productInfo3)} />
                         </div>
                     </motion.div>
                     <motion.div
@@ -125,7 +262,7 @@ const Product = () => {
                         variants={slideRightVariants}
                         transition={{ duration: 1.5 }}>
                         <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
-                            <RecipeReviewCard  {...productInfo2} />
+                            <RecipeReviewCard  {...productInfo2} onBuyClick={() => handleCardBuyClick(productInfo2)} />
                         </div>
                     </motion.div>
                     <motion.div
@@ -134,7 +271,7 @@ const Product = () => {
                         variants={slideRightVariants}
                         transition={{ duration: 2.0 }}>
                         <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
-                            <RecipeReviewCard  {...productInfo4} />
+                            <RecipeReviewCard  {...productInfo4} onBuyClick={() => handleCardBuyClick(productInfo4)} />
                         </div>
                     </motion.div>
                     <motion.div
@@ -144,7 +281,7 @@ const Product = () => {
                         variants={squareVariants}
                         className="square">
                         <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
-                            <RecipeReviewCard  {...productInfo5} />
+                            <RecipeReviewCard  {...productInfo5} onBuyClick={() => handleCardBuyClick(productInfo5)} />
                         </div>
                     </motion.div>
                     <motion.div
@@ -154,7 +291,7 @@ const Product = () => {
                         variants={squareVariants}
                         className="square">
                         <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
-                            <RecipeReviewCard  {...productInfo} />
+                            <RecipeReviewCard  {...productInfo} onBuyClick={() => handleCardBuyClick(productInfo)}/>
                         </div>
                     </motion.div>
                 </div>

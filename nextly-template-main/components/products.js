@@ -1,86 +1,29 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
+
+import Box from '@mui/material/Box';
+
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
 
 import Divider from '@mui/material/Divider';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+
 const axios = require('axios');
 
 const ProductCard = (props) => {
-    const { image, description, brand, formattedPrice } = props;
+    const { image, description, brand, formattedPrice, onBuyClick  } = props;
     const [showPayPalButtons, setShowPayPalButtons] = useState(false);
+    
 
-    useEffect(() => {
-        const loadPayPalSDK = async () => {
-          const script = document.createElement('script');
-          script.src = 'https://www.paypal.com/sdk/js?client-id=ATP98nmGlWaVc94673pYwwecXCWE6um7pSH3wey6NaONBrLZ6P3w9hl-FTHT293NxZeDU43fEIT-cFZy';
-          script.async = true;
-          
-          const loadScript = new Promise((resolve) => {
-            script.onload = resolve;
-          });
-      
-          document.body.appendChild(script);
-          await loadScript;
-          
-          // PayPal SDK has loaded, render the PayPal Smart Payment Buttons
-          console.log("Setting is true")
-          setShowPayPalButtons(true);
-        };
-      
-        loadPayPalSDK();
-      }, []);
-
-    const createOrder = async () => {
-        const url = 'http://localhost:8000/create-paypal-order'; // Replace with your desired endpoint
-        const data = {
-            key1: 'value1',
-            key2: 'value2',
-            // Add more data as needed for your API endpoint
-        };
-
-        try {
-            const response = await axios.post(url, data);
-            console.log('Post request successful:', response.data.id)
-            setShowPayPalButtons(true);
-            return response.data.id;
-            // Do something with the response data
-        } catch (error) {
-            console.error('Error making POST request:', error.message);
-            // Handle the error
-        }
-    }
-
-    const onApprove = (data, actions) => {
-        // Handle the approved payment here, e.g., show a success message
-        console.log('Payment approved:', data);
-    };
-
-    const onCancel = (data) => {
-        // Handle the payment cancellation here, e.g., show a cancellation message
-        console.log('Payment cancelled:', data);
-    };
-
-    const onError = (err) => {
-        // Handle payment errors here, e.g., show an error message
-        console.error('Payment error:', err);
-    };
-
-    const handleAddToCart = () => {
-        createOrder().then((orderId) => {
-            // Render the PayPal Smart Payment Buttons dynamically
-            if (window.paypal) {
-                window.paypal
-                    .Buttons({
-                        createOrder: (data, actions) => {
-                            return orderId;
-                        },
-                        onApprove: onApprove,
-                        onCancel: onCancel,
-                        onError: onError
-                    })
-                    .render('#paypal-button-container');
-            }
-        });
-    };
+    const handleModalOpen = () => {
+        setShowPayPalButtons(true);
+      };
+    
+      const handleModalClose = () => {
+        setShowPayPalButtons(false);
+      };
+   
 
     return (
         <>
@@ -114,11 +57,13 @@ const ProductCard = (props) => {
                         <p >{description}</p>
                     </div>
                     <div className="flex-1 p-4 flex flex-row-reverse">
-                        <button onClick={handleAddToCart} className="bg-blue-500 text-white py-2 px-4 rounded-3xl"><ShoppingBasketIcon className="mr-2" />  Add to Cart</button>
+                        <button onClick={onBuyClick} className="bg-blue-500 text-white py-2 px-4 rounded-3xl"><ShoppingBasketIcon className="mr-2" />  Add to Cart</button>
                     </div>
                 </div>
             </div>
-            {showPayPalButtons && <div id="paypal-button-container"></div>}
+
+           
+            
         </>
     );
 };
