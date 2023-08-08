@@ -212,12 +212,12 @@ const Product = () => {
 
             <Navbar />
             <Container>
-                <h1 className="z-20 relative text-4xl font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight text-white">
+                <h1 style = {{marginTop:'150px', marginBottom:'150px'}}  className="z-20 relative text-center lg:px-10 text-4xl font-bold leading-snug tracking-tight  lg:text-8xl lg:leading-tight xl:text-8xl xl:leading-tight text-white">
                     Our Products
                 </h1>
             </Container>
             <Container>
-                <div className="flex flex-col"
+                <div className="flex flex-col items-center"
                 // style={{
                 //     display: 'flex',
                 //     flexDirection: ['column', 'row'],

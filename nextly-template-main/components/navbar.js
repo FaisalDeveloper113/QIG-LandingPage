@@ -51,14 +51,14 @@ const Navbar = () => {
 
   return (
     <div className="w-full relative">
-      <nav className="  z-20 container relative flex flex-wrap items-center justify-between mx-auto lg:justify-between xl:px-0">
+      <nav className="  z-20 container relative flex flex-wrap items-center justify-between mx-auto lg:justify-between xl:px-10">
         {/* Logo */}
         <Disclosure>
           {({ open }) => (
             <>
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
                 <Link href="/">
-                  <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 text-gray-100">
+                  <span className="flex items-center space-x-2 text-2xl font-medium">
                     <span>
 
                       {/* <Image
@@ -89,7 +89,7 @@ const Navbar = () => {
                   <svg
                     className="w-6 h-6 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
+                    viewBox="5 5 15 15"
                   >
                     {open && (
                       <path
@@ -107,7 +107,7 @@ const Navbar = () => {
                   </svg>
                 </Disclosure.Button>
 
-                <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
+                <Disclosure.Panel className="flex flex-wrap w-full my-5 mx-10 lg:hidden">
                   <>
                     {Mobnavigation.map((item, index) => (
                       <Link
@@ -123,7 +123,7 @@ const Navbar = () => {
                                 ? "/blog"
                                 : "/"
                         }
-                        className="w-full px-4 py-2 -ml-4  rounded-md text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                        className="w-full px-4 py-2 -ml-4  rounded-md text-gray-300 hover:text-blue-500 focus:text-blue-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                       >
                         {item}
                       </Link>
@@ -140,10 +140,10 @@ const Navbar = () => {
                           </Disclosure.Button>
                           <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
                             <ul className="" style={{ textAlign: 'left', cursor: 'pointer' }}>
-                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
-                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
-                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
-                              <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
+                              <li className='hover:text-blue-500' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
+                              <li className='hover:text-blue-500' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
+                              <li className='hover:text-blue-500' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
+                              <li className='hover:text-blue-500' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
                             </ul>
                           </Disclosure.Panel>
                         </>
@@ -151,7 +151,7 @@ const Navbar = () => {
                     </Disclosure>
                     <Link
                       href="https://qig-dashboard-frontend.vercel.app/login"
-                      className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5"
+                      className="w-full px-6 py-2 mt-3 text-center text-white bg-blue-500 rounded-md lg:ml-5"
                     >
                       Admin Login
                     </Link>
@@ -181,7 +181,7 @@ const Navbar = () => {
                           ? "/blog"
                           : "/customService"
                   }
-                  className="inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
+                  className="inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md text-gray-200 hover:text-blue-500 focus:text-blue-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
                   {menu}{menu.toLowerCase() === 'create' && <ArrowDropDownIcon />}
                 </Link>
@@ -198,10 +198,10 @@ const Navbar = () => {
                     }}>
 
                     <ul className="text-gray-200" style={{ textAlign: 'left', cursor: 'pointer' }}>
-                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
-                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
-                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
-                      <li className='hover:text-blue-700' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
+                      <li className='hover:text-blue-500' style={{ padding: '10px' }}><Link href='/customService'>Custom Algo</Link></li>
+                      <li className='hover:text-blue-500' style={{ padding: '10px' }}><Link href='/mt4service'>MetaTrader 4</Link></li>
+                      <li className='hover:text-blue-500' style={{ padding: '10px' }}><Link href='/mt5service'>MetaTrader 5</Link></li>
+                      <li className='hover:text-blue-500' style={{ padding: '10px' }}><Link href='/tradingViewService'>TradingView</Link></li>
                     </ul>
 
                   </div>
@@ -216,7 +216,7 @@ const Navbar = () => {
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
           <Link
             href="https://qig-dashboard-frontend.vercel.app/login"
-            className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5"
+            className="px-6 py-2 text-white bg-blue-500 rounded-md md:ml-5"
           >
             Admin Login
           </Link>
@@ -226,8 +226,8 @@ const Navbar = () => {
 
       </nav>
       <div className="absolute top-0 right-0 inset-0 min-w-full h-full">
-    <Image alt= '' className="hidden max-w-screen min-h-600 object-right md:inline-block z-0 h-600 md:h-auto md:object-cover md:max-w-none right-0 absolute" src={banner}></Image>
-    <Image  alt = '' className="md:hidden z-0 md:h-auto md:object-cover w-full right-0 absolute" src={mobBanner}></Image>
+    <Image alt= "a" className="hidden max-w-screen min-h-600 object-right md:inline-block z-0 h-600 md:h-auto md:object-cover md:max-w-none right-0 absolute" src={banner}></Image>
+    <Image  alt = "a" className="md:hidden z-0 md:h-auto md:object-cover w-full right-0 absolute" src={mobBanner}></Image>
     
     {/* <div  className="absolute top-0 left-0 z-20 h-600 sm:h-auto bg-cover" style={{backgroundImage : `url(${banner})`}}> */}
     </div>

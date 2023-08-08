@@ -8,7 +8,7 @@ const ProductCard = (props) => {
     const { image, description, brand, formattedPrice, onBuyClick  } = props;   
     return (
         <>
-            <div className="flex flex-col md:flex-row z-20 relative m-4 p-4 shadow-xl rounded-lg bg-trueGray-100 dark:bg-trueGray-800">
+            <div className="md:max-w-6xl  flex flex-col md:flex-row z-20 relative m-4 p-4 shadow-xl rounded-lg bg-trueGray-100 dark:bg-trueGray-800">
                 <div className="flex-1">
                     <img
                         style={{
