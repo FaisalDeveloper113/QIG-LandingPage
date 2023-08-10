@@ -9,10 +9,10 @@ import userThreeImg from "../public/img/user3.jpg";
 const Testimonials  = () => {
   return (
     <Container>
-      <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3 xl:px-10">
         <div className="lg:col-span-2 xl:col-auto">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
+          <div className="flex flex-col justify-between w-full h-full bg-gray-100 p-12 rounded-2xl dark:bg-trueGray-800">
+            <p className="md:text-2xl sm:text-sm leading-normal ">
             Among the various automated trading platforms I've explored, none can rival the unmatched quality of Quant Farming. The user-friendly interface, superb customer support, and consistently profitable outcomes make it the ultimate choice for any serious trader.</p>
 
             <Avatar
@@ -23,8 +23,8 @@ const Testimonials  = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
+          <div className="flex flex-col justify-between w-full h-full bg-gray-100 rounded-2xl p-12 dark:bg-trueGray-800">
+            <p className="md:text-2xl sm:text-sm leading-normal ">
             Through this remarkable auto trading system, I've finally discovered a passive income stream from trading. It demands minimal effort while consistently delivering extraordinary results. It's truly a marvel.
             </p>
 
@@ -36,8 +36,8 @@ const Testimonials  = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-            <p className="text-2xl leading-normal ">
+          <div className="flex flex-col justify-between w-full h-full bg-gray-100 p-12 rounded-2xl dark:bg-trueGray-800">
+            <p className="md:text-2xl sm:text-sm leading-normal ">
             The transparency and accuracy exhibited by Quant Farming  have left me astounded. Their performance reports align flawlessly with my own results, and their unwavering commitment to honesty and ethical practices is highly commendable.
             </p>
 
