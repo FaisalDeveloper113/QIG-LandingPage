@@ -26,7 +26,7 @@ const Hero = () => {
     
       
       
-      <Container className="flex flex-wrap ">
+      <Container className="flex flex-wrap xl:px-10">
         <div className="flex items-center w-full lg:w-1/2 z-10">
           <div className="max-w-2xl mb-8">
             <motion.div

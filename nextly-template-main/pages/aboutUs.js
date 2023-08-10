@@ -31,7 +31,7 @@ const aboutUs = () => {
                 </h1>
             </Container>
 
-            <div className=" z-20 dark:bg-trueGray-800 py-8 px-8" style={{ paddingBottom: '', textAlign: '-webkit-center' }}>
+            <div className=" z-20 dark:bg-trueGray-800 py-8 px-8 mx-auto flex items-center justify-center" >
                 <div className=" dark:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px', marginTop: '250px' }}>
                     <div className="grid grid-cols-3 gap-4 text-center  dark:bg-trueGray-800" >
                         <div className="z-20 p-4 col-span-3 text-left dark:bg-trueGray-800">
@@ -53,7 +53,7 @@ const aboutUs = () => {
                     </div>
                 </div>
             </div>
-            <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
+            <div className=" dark:bg-trueGray-800 mx-auto flex items-center justify-center" >
                 <div className=" dark:bg-trueGray-800 bg-gray-100" style={{ background: '', maxWidth: '1300px' }}>
                 </div>
                 <div className=" dark:bg-trueGray-800 bg-gray-100" style={{ background: '', maxWidth: '1300px' }}>
@@ -63,7 +63,7 @@ const aboutUs = () => {
                             <p className="m-4 text-gray-500 dark:text-gray-400">Our development team is composed of individuals with a strong passion for the stock market and banking, and the experience they have gained in those fields. We use this expertise to create trading systems that can be tailored to your specifications.</p>
                         </div>
                         <div className="flex-1 dark:bg-trueGray-800 p-4">
-                            <Image width='500' height='500' src={img1}></Image>
+                            <Image alt="a" width='500' height='500' src={img1}></Image>
                         </div>
                     </div>
                 </div>

@@ -76,7 +76,7 @@ const mt4Service = () => {
             </Head>
 
             <Navbar />
-            <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
+            <div className=" dark:bg-trueGray-800 mx-auto flex items-center justify-center" >
                 <div className="relative z-20 darks:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px', marginTop:'200px'  }}>
                     <div className="grid grid-cols-3 gap-4 text-center  dark:bg-trueGray-800" >
                         <div className="p-4 col-span-3  dark:bg-trueGray-800">
@@ -205,7 +205,7 @@ const mt4Service = () => {
                     </div>
                 </div>
             </div >
-            <div className=" dark:bg-trueGray-800" style={{ background: '', textAlign: '-webkit-center' }}>
+            <div className=" dark:bg-trueGray-800 mx-auto flex items-center justify-center">
                 <div className=" dark:bg-trueGray-800" style={{ background: 'white', maxWidth: '1300px' }}>
                     <div className="flex flex-col md:flex-row">
                         <div className="flex-1 dark:bg-trueGray-800 p-4"><img src="https://yourrobotrader.com/wp-content/uploads/2023/03/stock-market-analyst-looking-at-computer-trading-online-analyzing-data-.jpg"></img></div>
