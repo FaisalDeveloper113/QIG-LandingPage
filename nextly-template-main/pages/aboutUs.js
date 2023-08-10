@@ -7,7 +7,33 @@ import { motion } from "framer-motion";
 import img1 from '../public/img/senior-businessman-talking-at-meeting.jpg';
 import RecipeReviewCard from "../components/products";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
+const checkLoggedIn = () => {
+    return new Promise((resolve) => {
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      if (isLoggedIn !== "true") {
+        resolve(false);
+      } else {
+        resolve(true);
+      }
+    });
+  };
+
 const aboutUs = () => {
+
+    /////////////////
+    const router = useRouter();
+
+  useEffect(() => {
+    checkLoggedIn().then((loggedIn) => {
+      if (!loggedIn) {
+        router.push("/comingSoon");
+      }
+    });
+  }, [router]);
+  //////////////
 
     const slideUpVariants = {
         initial: { y: 100, opacity: 0 },

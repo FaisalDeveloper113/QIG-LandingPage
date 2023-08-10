@@ -5,16 +5,23 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Image from "next/image";
 import banner from "../public/img/web-banner.jpg";
+import { useRouter } from "next/router";
 
 const comingSoon = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleSignIn = (event) => {
     event.preventDefault();
     // Here you can use the 'email' and 'password' state values
     console.log("Email:", email);
     console.log("Password:", password);
+
+    if (email === "hiqbal955@gmail.com" && password === "Haris123") {
+      localStorage.setItem("isLoggedIn", true);
+      router.push("/");
+    } else localStorage.setItem("isLoggedIn", false);
   };
 
   return (
@@ -28,7 +35,7 @@ const comingSoon = () => {
 
       <div
         className="w-screen h-screen bg-cover bg-no-repeat bg-[url('/img/web-banner.jpg')] bg-[right] "
-        style={{ position: "relative"}}
+        style={{ position: "relative" }}
       >
         <div
           style={{
@@ -80,7 +87,7 @@ const comingSoon = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                style={{color:'black', borderRadius:'5px', padding:'5px'}}
+                style={{ color: "black", borderRadius: "5px", padding: "5px" }}
               />
             </div>
             <div style={{ marginTop: "10px" }}>
@@ -91,14 +98,20 @@ const comingSoon = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                style={{color:'black', borderRadius:'5px', padding:'5px'}}
+                style={{ color: "black", borderRadius: "5px", padding: "5px" }}
               />
             </div>
             <div style={{ marginTop: "15px" }}>
               <button
                 type="button"
                 onClick={handleSignIn}
-                style={{ backgroundColor: "#1877F2", width:'5rem', borderRadius:'5px', fontSize:'1em', padding:'5px' }}
+                style={{
+                  backgroundColor: "#1877F2",
+                  width: "5rem",
+                  borderRadius: "5px",
+                  fontSize: "1em",
+                  padding: "5px",
+                }}
               >
                 Sign In
               </button>
