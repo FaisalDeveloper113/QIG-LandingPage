@@ -23,9 +23,7 @@ const ProductCard = (props) => {
                     <div className="flex-1 p-4 flex flex-row text-left">
                         <p className="sm:text-4xl text-xl font-weight-bold ">{brand.name}</p>
                     </div>
-                    <div className="flex-1 p-4 flex flex-row text-left">
-                        <p className="flex-1 text-gray-500">Price</p>
-                    </div>
+
                     <Divider className="bg-gray-600 ml-4" />
                     <div className="flex-1 p-4 flex flex-row text-left">
                         <p className="flex-1 text-green-600 text-2xl" >{formattedPrice}</p>
