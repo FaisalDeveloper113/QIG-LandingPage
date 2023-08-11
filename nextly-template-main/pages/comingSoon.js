@@ -1,10 +1,5 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Image from "next/image";
-import banner from "../public/img/web-banner.jpg";
 import { useRouter } from "next/router";
 
 const comingSoon = () => {
@@ -40,16 +35,59 @@ const comingSoon = () => {
         <div
           style={{
             position: "absolute",
-            color: "beige",
-            fontSize: "4em",
-            fontWeight: "bold",
-            top: "10%",
-            left: "20%",
+            color: "#333333",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            background: "linear-gradient(to bottom, #E9D66B, #D4B04E)",
+            boxShadow: "5px 5px 40px rgba(0, 0, 0, 1)",
+            padding: "20px",
+            height: "auto",
           }}
         >
-          <h1>Coming Soon!</h1>
-          <section
-            style={{ maxWidth: "50%", fontSize: "20px", marginTop: "2em" }}
+          <h1
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: "70px",
+              marginTop: "-20px",
+              lineHeight: "1.2",
+              animation: "slideInFromLeft 1s ease-in-out forwards",
+            }}
+          >
+            Coming Soon!
+          </h1>
+          <style>
+            {`
+    @keyframes slideInFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  `}
+          </style>
+          <hr
+            style={{
+              backgroundColor: "#333333",
+              borderColor: "#000000",
+              marginTop: "5px",
+            }}
+          />
+          <div
+            style={{
+              fontSize: "1em",
+              marginTop: "0.7em",
+              animation: "fadeIn 3s ease-in-out forwards",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              width: "100%",
+            }}
           >
             {/*<Box
               component="form"
@@ -79,44 +117,66 @@ const comingSoon = () => {
                 Submit
               </Button>
             </Box>*/}
+
             <div>
-              <label htmlFor="email">Email:</label>
+              <div>
+                <label htmlFor="email">Email:</label>
+              </div>
               <input
                 type="email"
                 id="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                style={{ color: "black", borderRadius: "5px", padding: "5px" }}
+                style={{
+                  color: "black",
+                  borderRadius: "5px",
+                  padding: "5px",
+                  width: "15em",
+                }}
               />
             </div>
             <div style={{ marginTop: "10px" }}>
-              <label htmlFor="password">Password:</label>
+              <div>
+                <label htmlFor="password">Password:</label>
+              </div>
               <input
                 type="password"
                 id="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                style={{ color: "black", borderRadius: "5px", padding: "5px" }}
+                style={{
+                  color: "black",
+                  borderRadius: "5px",
+                  padding: "5px",
+                  width: "15em",
+                }}
               />
             </div>
             <div style={{ marginTop: "15px" }}>
               <button
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 rounded w-60 h-8"
                 type="button"
                 onClick={handleSignIn}
-                style={{
-                  backgroundColor: "#1877F2",
-                  width: "5rem",
-                  borderRadius: "5px",
-                  fontSize: "1em",
-                  padding: "5px",
-                }}
+                
               >
                 Sign In
               </button>
+              <style>
+                {`
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  `}
+              </style>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </>
