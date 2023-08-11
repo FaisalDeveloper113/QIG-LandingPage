@@ -13,7 +13,7 @@ const comingSoon = () => {
     console.log("Email:", email);
     console.log("Password:", password);
 
-    if (email === "hiqbal955@gmail.com" && password === "Haris123") {
+    if (email === "admin@quantinvestmentsgroup.com" && password === "SecuretheBag7@") {
       localStorage.setItem("isLoggedIn", true);
       router.push("/");
     } else localStorage.setItem("isLoggedIn", false);
@@ -133,6 +133,7 @@ const comingSoon = () => {
                   borderRadius: "5px",
                   padding: "5px",
                   width: "15em",
+                  backgroundColor: "white",
                 }}
               />
             </div>
@@ -151,6 +152,7 @@ const comingSoon = () => {
                   borderRadius: "5px",
                   padding: "5px",
                   width: "15em",
+                  backgroundColor: "white",
                 }}
               />
             </div>
