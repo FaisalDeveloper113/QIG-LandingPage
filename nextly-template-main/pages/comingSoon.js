@@ -13,7 +13,10 @@ const comingSoon = () => {
     console.log("Email:", email);
     console.log("Password:", password);
 
-    if (email === "admin@quantinvestmentsgroup.com" && password === "SecuretheBag7@") {
+    if (
+      email === "admin@quantinvestmentsgroup.com" &&
+      password === "SecuretheBag7@"
+    ) {
       localStorage.setItem("isLoggedIn", true);
       router.push("/");
     } else localStorage.setItem("isLoggedIn", false);
@@ -34,6 +37,27 @@ const comingSoon = () => {
       >
         <div
           style={{
+            display: "flex",
+            justifyContent: "center",
+            padding: "5px",
+            backgroundColor: "#333333",
+            height: "20vh",
+          }}
+        >
+          <h1
+            style={{
+              textAlign: "center",
+              fontSize: "40px",
+              color: "white",
+              fontWeight: "bold",
+              marginTop: "30px",
+            }}
+          >
+            Automating Your Financial Success
+          </h1>
+        </div>
+        <div
+          style={{
             position: "absolute",
             color: "#333333",
             top: "50%",
@@ -49,24 +73,25 @@ const comingSoon = () => {
             style={{
               textAlign: "center",
               fontWeight: "bold",
-              fontSize: "70px",
+              fontSize: "50px",
               marginTop: "-20px",
               lineHeight: "1.2",
-              animation: "slideInFromLeft 1s ease-in-out forwards",
+              animation: "smoothFlash 1s infinite",
             }}
           >
             Coming Soon!
           </h1>
           <style>
             {`
-    @keyframes slideInFromLeft {
+    @keyframes smoothFlash {
       0% {
-        opacity: 0;
-        transform: translateX(-100%);
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
       }
       100% {
         opacity: 1;
-        transform: translateX(0);
       }
     }
   `}
@@ -78,18 +103,19 @@ const comingSoon = () => {
               marginTop: "5px",
             }}
           />
-          <div
-            style={{
-              fontSize: "1em",
-              marginTop: "0.7em",
-              animation: "fadeIn 3s ease-in-out forwards",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              width: "100%",
-            }}
-          >
-            {/*<Box
+          <form>
+            <div
+              style={{
+                fontSize: "1em",
+                marginTop: "0.7em",
+                animation: "fadeIn 3s ease-in-out forwards",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              {/*<Box
               component="form"
               sx={{
                 "& .MuiTextField-root": { m: 1, width: "15ch" },
@@ -118,67 +144,55 @@ const comingSoon = () => {
               </Button>
             </Box>*/}
 
-            <div>
               <div>
-                <label htmlFor="email">Email:</label>
+                <div>
+                  <label htmlFor="email">Email:</label>
+                </div>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={{
+                    color: "black",
+                    borderRadius: "5px",
+                    padding: "5px",
+                    width: "15em",
+                    backgroundColor: "white",
+                  }}
+                />
               </div>
-              <input
-                type="email"
-                id="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{
-                  color: "black",
-                  borderRadius: "5px",
-                  padding: "5px",
-                  width: "15em",
-                  backgroundColor: "white",
-                }}
-              />
-            </div>
-            <div style={{ marginTop: "10px" }}>
-              <div>
-                <label htmlFor="password">Password:</label>
+              <div style={{ marginTop: "10px" }}>
+                <div>
+                  <label htmlFor="password">Password:</label>
+                </div>
+                <input
+                  type="password"
+                  id="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  style={{
+                    color: "black",
+                    borderRadius: "5px",
+                    padding: "5px",
+                    width: "15em",
+                    backgroundColor: "white",
+                  }}
+                />
               </div>
-              <input
-                type="password"
-                id="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{
-                  color: "black",
-                  borderRadius: "5px",
-                  padding: "5px",
-                  width: "15em",
-                  backgroundColor: "white",
-                }}
-              />
+              <div style={{ marginTop: "15px" }}>
+                <button
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 rounded w-60 h-8"
+                  type="button"
+                  onClick={handleSignIn}
+                >
+                  Sign In
+                </button>
+              </div>
             </div>
-            <div style={{ marginTop: "15px" }}>
-              <button
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 rounded w-60 h-8"
-                type="button"
-                onClick={handleSignIn}
-                
-              >
-                Sign In
-              </button>
-              <style>
-                {`
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  `}
-              </style>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </>
