@@ -19,22 +19,32 @@ import mobBanner from '../public/img/mobile-banner.png';
 
 import { useTheme } from 'next-themes';
 import { ChevronUpIcon } from '@heroicons/react/24/solid';
+import CartSummaryModal from './CartSummaryModal';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+
 
 const Navbar = () => {
   const navigation = ["About Us", "Algos", "Create", "Contact", "Blog"];
   const Mobnavigation = ["About Us", "Algos", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleAddToCart = (product) => {
+    // Logic to add product to cart
+    setCartItems([...cartItems, product]);
+    setIsModalOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
+
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
+
 
   const handleMouseEnter = () => {
     setShowDropdown(true);
@@ -120,8 +130,8 @@ const Navbar = () => {
                               : item.toLowerCase() === "contact"
                                 ? "/contact"
                                 : item.toLowerCase() === "blog"
-                                ? "/blog"
-                                : "/"
+                                  ? "/blog"
+                                  : "/"
                         }
                         className="w-full px-4 py-2 -ml-4  rounded-md text-gray-300 hover:text-blue-500 focus:text-blue-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                       >
@@ -178,8 +188,8 @@ const Navbar = () => {
                         : menu.toLowerCase() === "contact"
                           ? "/contact"
                           : menu.toLowerCase() === "blog"
-                          ? "/blog"
-                          : "/customService"
+                            ? "/blog"
+                            : "/customService"
                   }
                   className="inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md text-gray-200 hover:text-blue-500 focus:text-blue-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
@@ -221,16 +231,26 @@ const Navbar = () => {
             Admin Login
           </Link>
 
-         <ThemeChanger /> 
+          <ThemeChanger />
+          <Badge badgeContent={1} color="primary">
+            <IconButton onClick={() => handleAddToCart({ name: 'Product A', quantity: 1 })} color="inherit">
+              <ShoppingCartIcon />
+            </IconButton>
+          </Badge>
+          <CartSummaryModal
+            open={isModalOpen}
+            onClose={handleCloseModal}
+            cartItems={cartItems}
+          />
         </div>
 
       </nav>
       <div className="absolute top-0 right-0 inset-0 min-w-full h-full">
-    <Image alt= "a" className="hidden max-w-screen min-h-600 object-right md:inline-block z-0 h-600 md:h-auto md:object-cover md:max-w-none right-0 absolute" src={banner}></Image>
-    <Image  alt = "a" className="md:hidden z-0 md:h-auto md:object-cover w-full right-0 absolute" src={mobBanner}></Image>
-    
-    {/* <div  className="absolute top-0 left-0 z-20 h-600 sm:h-auto bg-cover" style={{backgroundImage : `url(${banner})`}}> */}
-    </div>
+        <Image alt="a" className="hidden max-w-screen min-h-600 object-right md:inline-block z-0 h-600 md:h-auto md:object-cover md:max-w-none right-0 absolute" src={banner}></Image>
+        <Image alt="a" className="md:hidden z-0 md:h-auto md:object-cover w-full right-0 absolute" src={mobBanner}></Image>
+
+        {/* <div  className="absolute top-0 left-0 z-20 h-600 sm:h-auto bg-cover" style={{backgroundImage : `url(${banner})`}}> */}
+      </div>
     </div>
   );
 };

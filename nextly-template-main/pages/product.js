@@ -12,6 +12,10 @@ const axios = require("axios");
 import dotenv from "dotenv";
 import path from "path";
 import { useRouter } from "next/router";
+import AddToCartModal from "../components/AddToCartModal";
+
+
+
 
 const envFilePath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envFilePath });
@@ -45,6 +49,17 @@ const Product = () => {
 
   const [ref, inView] = useInView();
   const controls = useAnimation();
+  const [ref1, inView1] = useInView();
+  const controls1 = useAnimation();
+  const [ref2, inView2] = useInView();
+  const controls2 = useAnimation();
+  const [ref3, inView3] = useInView();
+  const controls3 = useAnimation();
+  const [ref4, inView4] = useInView();
+  const controls4 = useAnimation();
+  const [ref5, inView5] = useInView();
+  const controls5 = useAnimation();
+  
   const [selectedProductInfo, setSelectedProductInfo] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleCardBuyClick = (productInfo) => {
@@ -58,13 +73,17 @@ const Product = () => {
     setIsModalOpen(false);
     setSelectedProductInfo({});
   };
-  const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
-      setIsModalOpen(false);
-      setSelectedProductInfo({});
-    }
+
+  const [isAddCartOpen, setIsAddCartOpen] = useState(false);
+
+  const handleOpenCartModal = () => {
+    console.log("open");
+    setIsAddCartOpen(true);
   };
 
+  const handleCloseCartModal = () => {
+    setIsAddCartOpen(false);
+  };
   useEffect(() => {
     const loadPayPalSDK = async () => {
       const script = document.createElement("script");
@@ -162,7 +181,7 @@ const Product = () => {
     price: 899,
     formattedPrice: "$899",
     description:
-      "The Apex Mean Reversion Algo expertly executes trades by capitalizing on temporary price distortions. It offers an intuitive user interface, perfectly blending simplicity and sophistication, tailored for both beginners and experienced traders. Enjoy access to real-time analytics, straightforward buy and sell signals, and customizable trading parameters that sync seamlessly with your unique risk tolerance and investment goals. ",
+      "The Apex Mean Reversion Algo expertly executes trades by capitalizing on temporary price distortions. It offers an intuitive user interface, perfectly blending simplicity and sophistication, tailored for both beginners and experienced traders.",
   };
 
   const productInfo2 = {
@@ -174,7 +193,7 @@ const Product = () => {
     price: 899,
     formattedPrice: "$899",
     description:
-      "Unveiling Trend Flip - Unleash Profits with Momentum EMA Crossover Expert Advisor! Are you tired of missing out on those trend-reversal opportunities that can lead to substantial profits? Look no further! Trend Flip is your new ally in the trading world. This powerful Expert Advisor (EA) combines the precision of Exponential Moving Averages (EMA) with the prowess of momentum analysis to identify trend shifts with astounding accuracy.",
+      "Unveiling Trend Flip - Unleash Profits with Momentum EMA Crossover Expert Advisor! Are you tired of missing out on those trend-reversal opportunities that can lead to substantial profits? ",
   };
 
   const productInfo3 = {
@@ -187,7 +206,7 @@ const Product = () => {
     price: 499,
     formattedPrice: "$499",
     description:
-      "Fortress Risk Management Algo, an exceptional MT4-based trading software designed to safeguard your investments with uncompromising precision. This algorithmic solution provides a powerful defense mechanism against unpredictable market volatility, employing dual strategies of setting a predetermined % or pip based stop loss and hedging against potential volatility spikes.",
+      "Fortress Risk Management Algo, an exceptional MT4-based trading software designed to safeguard your investments with uncompromising precision.",
   };
 
   const productInfo4 = {
@@ -200,7 +219,7 @@ const Product = () => {
     price: 699,
     formattedPrice: "$699",
     description:
-      "Simply set your desired target profits and predefined stop losses, and watch as the algorithm works its magic, closing positions with unrivaled accuracy. It's the ultimate blend of sophistication and simplicity, empowering even novice traders to achieve pro-level results. ",
+      "Simply set your desired target profits and predefined stop losses, and watch as the algorithm works its magic, closing positions with unrivaled accuracy.",
   };
 
   const productInfo5 = {
@@ -233,14 +252,36 @@ const Product = () => {
       controls.start("visible");
     }
   }, [controls, inView]);
+  useEffect(() => {
+    if (inView1) {
+      controls1.start("visible");
+    }
+  }, [controls1, inView1]);
+  useEffect(() => {
+    if (inView2) {
+      controls2.start("visible");
+    }
+  }, [controls2, inView2]);
+  useEffect(() => {
+    if (inView3) {
+      controls3.start("visible");
+    }
+  }, [controls3, inView3]);
+  useEffect(() => {
+    if (inView4) {
+      controls4.start("visible");
+    }
+  }, [controls4, inView4]);
+  useEffect(() => {
+    if (inView5) {
+      controls5.start("visible");
+    }
+  }, [controls5, inView5]);
   const squareVariants = {
     visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
     hidden: { opacity: 0, scale: 0.5 },
   };
-  const slideRightVariants = {
-    initial: { x: 250, opacity: 0 },
-    animate: { x: 0, opacity: 1 },
-  };
+
   return (
     <>
       <Head>
@@ -261,6 +302,7 @@ const Product = () => {
       <Container>
         <div
           className="flex flex-col items-center"
+          style={{marginTop:'-150px'}}
           // style={{
           //     display: 'flex',
           //     flexDirection: ['column', 'row'],
@@ -290,6 +332,7 @@ const Product = () => {
                 placeItems: "center",
               }}
             >
+              
               <span
                 className="absolute right-3 top-3 cursor-pointer font-weight-bold"
                 onClick={handleModalClose}
@@ -298,24 +341,27 @@ const Product = () => {
               </span>
             </div>
           )}
+          <AddToCartModal open={isAddCartOpen} onClose={handleCloseCartModal} />
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={slideRightVariants}
-            transition={{ duration: 1.0 }}
+            ref={ref}
+            animate={controls}
+            initial="hidden"
+            variants={squareVariants}
+            className="square"
           >
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
                 {...productInfo1}
-                onBuyClick={() => handleCardBuyClick(productInfo1)}
+                onBuyClick={() => handleOpenCartModal()}
               />
             </div>
           </motion.div>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={slideRightVariants}
-            transition={{ duration: 1.5 }}
+            ref={ref1}
+            animate={controls1}
+            initial="hidden"
+            variants={squareVariants}
+            className="square"
           >
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
@@ -325,10 +371,11 @@ const Product = () => {
             </div>
           </motion.div>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={slideRightVariants}
-            transition={{ duration: 2.0 }}
+            ref={ref2}
+            animate={controls2}
+            initial="hidden"
+            variants={squareVariants}
+            className="square"
           >
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
@@ -338,8 +385,8 @@ const Product = () => {
             </div>
           </motion.div>
           <motion.div
-            ref={ref}
-            animate={controls}
+            ref={ref3}
+            animate={controls3}
             initial="hidden"
             variants={squareVariants}
             className="square"
@@ -352,8 +399,8 @@ const Product = () => {
             </div>
           </motion.div>
           <motion.div
-            ref={ref}
-            animate={controls}
+            ref={ref4}
+            animate={controls4}
             initial="hidden"
             variants={squareVariants}
             className="square"
@@ -366,8 +413,8 @@ const Product = () => {
             </div>
           </motion.div>
           <motion.div
-            ref={ref}
-            animate={controls}
+            ref={ref5}
+            animate={controls5}
             initial="hidden"
             variants={squareVariants}
             className="square"
