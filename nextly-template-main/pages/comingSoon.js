@@ -10,8 +10,8 @@ const comingSoon = () => {
   const handleSignIn = (event) => {
     event.preventDefault();
     // Here you can use the 'email' and 'password' state values
-    console.log("Email:", email);
-    console.log("Password:", password);
+    //console.log("Email:", email);
+    //console.log("Password:", password);
 
     if (
       email === "admin@quantinvestmentsgroup.com" &&
