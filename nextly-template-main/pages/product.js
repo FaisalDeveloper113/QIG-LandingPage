@@ -47,6 +47,7 @@ const Product = () => {
   }, [router]);
   /////
 
+
   const [ref, inView] = useInView();
   const controls = useAnimation();
   const [ref1, inView1] = useInView();
@@ -76,13 +77,16 @@ const Product = () => {
 
   const [isAddCartOpen, setIsAddCartOpen] = useState(false);
 
-  const handleOpenCartModal = () => {
-    console.log("open");
+  const handleOpenCartModal = (productInfo) => {
+    //console.log("open");
     setIsAddCartOpen(true);
+    setSelectedProductInfo(productInfo);
   };
 
   const handleCloseCartModal = () => {
     setIsAddCartOpen(false);
+    setSelectedProductInfo({});
+
   };
   useEffect(() => {
     const loadPayPalSDK = async () => {
@@ -290,7 +294,7 @@ const Product = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
+      <Navbar isAddCartOpen = {isAddCartOpen} />
       <Container>
         <h1
           style={{ marginTop: "150px", marginBottom: "150px" }}
@@ -341,7 +345,7 @@ const Product = () => {
               </span>
             </div>
           )}
-          <AddToCartModal open={isAddCartOpen} onClose={handleCloseCartModal} />
+          <AddToCartModal productInfo = {selectedProductInfo}  open={isAddCartOpen} onClose={handleCloseCartModal} />
           <motion.div
             ref={ref}
             animate={controls}
@@ -352,7 +356,7 @@ const Product = () => {
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
                 {...productInfo1}
-                onBuyClick={() => handleOpenCartModal()}
+                onBuyClick={() => handleOpenCartModal(productInfo1)}
               />
             </div>
           </motion.div>
@@ -366,7 +370,7 @@ const Product = () => {
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
                 {...productInfo2}
-                onBuyClick={() => handleCardBuyClick(productInfo2)}
+                onBuyClick={() => handleOpenCartModal(productInfo2)}
               />
             </div>
           </motion.div>
@@ -380,7 +384,7 @@ const Product = () => {
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
                 {...productInfo3}
-                onBuyClick={() => handleCardBuyClick(productInfo3)}
+                onBuyClick={() => handleOpenCartModal(productInfo3)}
               />
             </div>
           </motion.div>
@@ -394,7 +398,7 @@ const Product = () => {
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
                 {...productInfo4}
-                onBuyClick={() => handleCardBuyClick(productInfo4)}
+                onBuyClick={() => handleOpenCartModal(productInfo4)}
               />
             </div>
           </motion.div>
@@ -408,7 +412,7 @@ const Product = () => {
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
                 {...productInfo5}
-                onBuyClick={() => handleCardBuyClick(productInfo5)}
+                onBuyClick={() => handleOpenCartModal(productInfo5)}
               />
             </div>
           </motion.div>
@@ -422,7 +426,7 @@ const Product = () => {
             <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
               <RecipeReviewCard
                 {...productInfo6}
-                onBuyClick={() => handleCardBuyClick(productInfo6)}
+                onBuyClick={() => handleOpenCartModal(productInfo6)}
               />
             </div>
           </motion.div>

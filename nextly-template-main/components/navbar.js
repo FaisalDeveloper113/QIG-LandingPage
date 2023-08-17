@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import { Menu } from '@mui/material';
+
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import logoDark from '../images/nav-dark-logo.png';
 import logoLight from '../images/nav-light-logo.png';
@@ -23,24 +17,48 @@ import CartSummaryModal from './CartSummaryModal';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
-
-const Navbar = () => {
+const Navbar = (isAddCartOpen) => {
   const navigation = ["About Us", "Algos", "Create", "Contact", "Blog"];
   const Mobnavigation = ["About Us", "Algos", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [cartItemCount, setCartItemCount] = useState(0);
 
-  const handleAddToCart = (product) => {
+  const removeFromCart = (itemToRemove) => {
+    
+    const updatedCart = cartItems.filter(item => item.brand.id !== itemToRemove.brand.id);
+    setCartItems(updatedCart);
+    localStorage.setItem('QIGCartItems', JSON.stringify(updatedCart));
+    toast.error('Item removed from cart', { position: toast.POSITION.BOTTOM_RIGHT });
+
+  };
+
+
+  
+  useEffect(() => {
+    if(isAddCartOpen || isModalOpen){
+    const storedCartItems = localStorage.getItem('QIGCartItems');
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+      setCartItemCount(cartItems.length);
+      
+    }
+  }
+    
+  }, [isAddCartOpen, isModalOpen]);
+  const handleAddToCart = () => {
     // Logic to add product to cart
-    setCartItems([...cartItems, product]);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+
   };
 
   const [showDropdown, setShowDropdown] = useState(false);
@@ -54,7 +72,7 @@ const Navbar = () => {
 
   const handleMouseLeave = () => {
     setShowDropdown(false);
-    setSelectedItem(null);
+    
   };
 
 
@@ -232,8 +250,8 @@ const Navbar = () => {
           </Link>
 
           <ThemeChanger />
-          <Badge badgeContent={1} color="primary">
-            <IconButton onClick={() => handleAddToCart({ name: 'Product A', quantity: 1 })} color="inherit">
+          <Badge badgeContent={cartItemCount} color="primary">
+            <IconButton onClick={() => handleAddToCart()} color="inherit">
               <ShoppingCartIcon />
             </IconButton>
           </Badge>
@@ -241,6 +259,8 @@ const Navbar = () => {
             open={isModalOpen}
             onClose={handleCloseModal}
             cartItems={cartItems}
+            removeFromCart={removeFromCart}
+            
           />
         </div>
 

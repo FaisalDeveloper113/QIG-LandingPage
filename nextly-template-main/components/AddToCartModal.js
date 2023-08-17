@@ -7,14 +7,40 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Divider } from '@mui/material';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
-const AddToCartModal = ({ open, onClose }) => {
+
+const AddToCartModal = ({ open, onClose, productInfo }) => {
     const [selectedOption, setSelectedOption] = useState('');
+    const [cartItems, setCartItems] = useState([]);
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
     };
 
+    
+    const addToCart = (product) => {
+        const isProductInCart = cartItems.some((item) => item.brand.id === product.brand.id);
+
+        // If the product is not in the cart, add it
+        if (!isProductInCart) {
+            const updatedCart = [...cartItems, product];
+            setCartItems(updatedCart);
+            localStorage.setItem('QIGCartItems', JSON.stringify(updatedCart));
+            onClose();
+            toast.success('Item added to cart', { position: toast.POSITION.BOTTOM_RIGHT });
+        }
+        else{
+            toast.warn('Item already exist in cart', { position: toast.POSITION.BOTTOM_RIGHT });
+        }
+        
+    };
+
+    if (!productInfo || !productInfo.brand) {
+        return <p>Loading...</p>; // or some other fallback content
+    }
     return (
         <Modal
             open={open}
@@ -38,8 +64,9 @@ const AddToCartModal = ({ open, onClose }) => {
                 }}
             >
                 <Typography id="modal-title" variant="h6" component="h2">
-                    Select an Option
+                    {productInfo.brand.name}
                 </Typography>
+                <Divider className="bg-gray-600 my-2" />
                 <RadioGroup
                     aria-label="options"
                     name="options"
@@ -52,21 +79,21 @@ const AddToCartModal = ({ open, onClose }) => {
                             <FormControlLabel
                                 value="option1"
                                 control={<Radio />}
-                                label="Option 1"
+                                label="Basic"
                             />
                             <Typography variant="body2">
-                                Description for Option 1.
+                                Price:
                             </Typography>
                         </div>
-                        <div  className={` flex-1 p-4 ${selectedOption === 'option2' ? 'bg-trueGray-800' : ''
+                        <div className={` flex-1 p-4 ${selectedOption === 'option2' ? 'bg-trueGray-800' : ''
                             }`}>
                             <FormControlLabel
                                 value="option2"
                                 control={<Radio />}
-                                label="Option 2"
+                                label="Premium"
                             />
                             <Typography variant="body2">
-                                Description for Option 2.
+                                Price:
                             </Typography>
                         </div>
                     </div>
@@ -75,7 +102,7 @@ const AddToCartModal = ({ open, onClose }) => {
                     <Button className='flex-1' onClick={onClose} color="primary">
                         Close
                     </Button>
-                    <Button className='flex-1 bg-blue-500' color="primary" variant='contained'>
+                    <Button onClick={() => addToCart(productInfo)} className='flex-1 bg-blue-500' color="primary" variant='contained'>
                         Add
                     </Button>
 
