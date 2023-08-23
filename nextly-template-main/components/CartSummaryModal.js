@@ -202,7 +202,7 @@ const CartSummaryModal = ({ open, onClose, cartItems, removeFromCart }) => {
           <strong>Total</strong>
           <strong>${calculateTotalPrice()}</strong>
         </Typography>
-        <Button onClick={() => handleCardBuyClick(100)} className='bg-blue-500 w-full' color="primary" variant='contained'>
+        <Button onClick={() => handleCardBuyClick(calculateTotalPrice())} className='bg-blue-500 w-full' color="primary" variant='contained'>
           Go to checkout
         </Button>
       </Box>
