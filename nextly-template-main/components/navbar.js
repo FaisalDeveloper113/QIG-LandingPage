@@ -41,7 +41,7 @@ const Navbar = (isAddCartOpen) => {
 
   
   useEffect(() => {
-    if(isAddCartOpen || isModalOpen){
+    if(isAddCartOpen || isModalOpen ){
     const storedCartItems = localStorage.getItem('QIGCartItems');
     if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
@@ -50,7 +50,8 @@ const Navbar = (isAddCartOpen) => {
     }
   }
     
-  }, [isAddCartOpen, isModalOpen]);
+  }, [isModalOpen, isAddCartOpen]);
+  
   const handleAddToCart = () => {
     // Logic to add product to cart
     setIsModalOpen(true);

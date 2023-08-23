@@ -88,6 +88,7 @@ const Product = () => {
     setSelectedProductInfo({});
 
   };
+
   useEffect(() => {
     const loadPayPalSDK = async () => {
       const script = document.createElement("script");
@@ -97,7 +98,6 @@ const Product = () => {
       const loadScript = new Promise((resolve) => {
         script.onload = resolve;
       });
-
       document.body.appendChild(script);
       await loadScript;
     };
@@ -183,6 +183,7 @@ const Product = () => {
       name: "Apex Mean Reversion Algo",
     },
     price: 899,
+    gold: 129,
     formattedPrice: "$899",
     description:
       "The Apex Mean Reversion Algo expertly executes trades by capitalizing on temporary price distortions. It offers an intuitive user interface, perfectly blending simplicity and sophistication, tailored for both beginners and experienced traders.",
@@ -195,6 +196,7 @@ const Product = () => {
       name: "Momentum EMA Crossover",
     },
     price: 899,
+    gold: 129,
     formattedPrice: "$899",
     description:
       "Unveiling Trend Flip - Unleash Profits with Momentum EMA Crossover Expert Advisor! Are you tired of missing out on those trend-reversal opportunities that can lead to substantial profits? ",
@@ -208,6 +210,7 @@ const Product = () => {
       name: "Fortress Risk Management ",
     },
     price: 499,
+    gold: 129,
     formattedPrice: "$499",
     description:
       "Fortress Risk Management Algo, an exceptional MT4-based trading software designed to safeguard your investments with uncompromising precision.",
@@ -221,6 +224,7 @@ const Product = () => {
       name: "Order Management",
     },
     price: 699,
+    gold: 129,
     formattedPrice: "$699",
     description:
       "Simply set your desired target profits and predefined stop losses, and watch as the algorithm works its magic, closing positions with unrivaled accuracy.",
@@ -234,6 +238,7 @@ const Product = () => {
       name: "Trend Indicator",
     },
     price: 499,
+    gold: 129,
     formattedPrice: "$499",
     description:
       "The Polaris Trend Indicator goes beyond the traditional confines of standard trend indicators. With its core engine powered by customizable moving averages. The indicator is intuitively designed to dynamically adjust to your selected moving average parameters, whether you're focusing on short-term trading opportunities or long-term investment strategies. This means you can fine-tune the tool to suit your unique trading style and goals, ensuring maximum relevance to your analysis.",
@@ -247,6 +252,7 @@ const Product = () => {
       name: "Alpha Algo Suite ",
     },
     price: 2499,
+    gold: 129,
     formattedPrice: "$2499",
     description:
       "Experience the full power of algorithmic trading with our Alpha Algo Suite – an all-encompassing, dynamic package for the MT4 platform that brings together the Accelerator Momentum Algo, Fortress Algo, Polaris Trend Indicator, and the game-changing Order Management System. This suite is a masterfully curated collection of our most sophisticated tools, designed to seamlessly integrate and elevate your trading journey.",

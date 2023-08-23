@@ -1,5 +1,5 @@
 // components/ModalWithRadioButtons.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Radio from '@mui/material/Radio';
@@ -7,9 +7,10 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Divider } from '@mui/material';
+import { Divider, Tooltip } from '@mui/material';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import InfoIcon from '@mui/icons-material/Info';
 
 
 const AddToCartModal = ({ open, onClose, productInfo }) => {
@@ -19,23 +20,42 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
     };
+    const [tooltipOpen, setTooltipOpen] = useState(false);
 
+    const handleTooltipToggle = () => {
+        setTooltipOpen(!tooltipOpen);
+    };
+    useEffect(() => {
+       
+        const storedCartItems = localStorage.getItem('QIGCartItems');
+        if (storedCartItems) {
+          setCartItems(JSON.parse(storedCartItems));
+          
+          
+        }
+      
+        
+      }, [open]);
     
+
     const addToCart = (product) => {
         const isProductInCart = cartItems.some((item) => item.brand.id === product.brand.id);
 
         // If the product is not in the cart, add it
         if (!isProductInCart) {
+            if(selectedOption == 'gold'){
+                product.price = product.price + product.gold;
+            }
             const updatedCart = [...cartItems, product];
             setCartItems(updatedCart);
             localStorage.setItem('QIGCartItems', JSON.stringify(updatedCart));
             onClose();
             toast.success('Item added to cart', { position: toast.POSITION.BOTTOM_RIGHT });
         }
-        else{
+        else {
             toast.warn('Item already exist in cart', { position: toast.POSITION.BOTTOM_RIGHT });
         }
-        
+
     };
 
     if (!productInfo || !productInfo.brand) {
@@ -74,26 +94,49 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
                     onChange={handleOptionChange}
                 >
                     <div style={{ width: '100%' }} className='flex flex-col gap-2'>
-                        <div className={`flex-1 p-4 ${selectedOption === 'option1' ? 'bg-trueGray-800' : ''
+                        <div className={` border border-gray-300 rounded-md flex-1 p-4 ${selectedOption === 'silver' ? ' bg-gray-300 text-black' : ''
                             }`}>
                             <FormControlLabel
-                                value="option1"
-                                control={<Radio />}
-                                label="Basic"
+                                value="silver"
+                                control={<Radio className=' text-white' />}
+                                label="SILVER"
                             />
+                            <Tooltip title=
+                                {<React.Fragment>
+                                    <Typography color="inherit">BASIC</Typography>
+                                    {'Features:'}<br />
+                                    {'RSI based Strategy, Cross below value, cross above value'}<br />
+                                    {'TP @ Value'}<br />
+                                    {'SL @ Value'}
+
+                                </React.Fragment>}
+                            ><InfoIcon /></Tooltip>
                             <Typography variant="body2">
-                                Price:
+                               <p className=' text-xl'>${productInfo.price}</p>
                             </Typography>
                         </div>
-                        <div className={` flex-1 p-4 ${selectedOption === 'option2' ? 'bg-trueGray-800' : ''
+                        <div className={`border border-yellow-400 rounded-md flex-1 p-4 ${selectedOption === 'gold' ? 'bg-yellow-400 text-black' : ''
                             }`}>
                             <FormControlLabel
-                                value="option2"
-                                control={<Radio />}
-                                label="Premium"
-                            />
+                                value="gold"
+                                control={<Radio className=' text-white' />}
+                                label="GOLD"
+                            /><Tooltip title=
+                                {<React.Fragment>
+                                    <Typography color="inherit">+ EXPERT ORDER MANAGEMENT</Typography>
+                                    Features:<br />
+                                    3 pre-determined TP’s,<br />
+                                    2 trailing SL’s<br />
+                                    Regular SL or Optional “Risk Management” SL<br />
+                                    % orders closed per trade<br />
+                                    Time Filter
+                                    Volume Filter<br />
+                                    
+
+                                </React.Fragment>}
+                            ><InfoIcon /></Tooltip>
                             <Typography variant="body2">
-                                Price:
+                            <p className=' text-xl'>${productInfo.price} + ${productInfo.gold}</p> 
                             </Typography>
                         </div>
                     </div>
