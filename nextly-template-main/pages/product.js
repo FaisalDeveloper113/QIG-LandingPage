@@ -216,20 +216,6 @@ const Product = () => {
       "Fortress Risk Management Algo, an exceptional MT4-based trading software designed to safeguard your investments with uncompromising precision.",
   };
 
-  const productInfo4 = {
-    image:
-      "https://silicon.nyc/wp-content/uploads/2018/08/ai-trader-cryptocurrencies.jpg",
-    brand: {
-      id: 4,
-      name: "Order Management",
-    },
-    price: 699,
-    gold: 129,
-    formattedPrice: "$699",
-    description:
-      "Simply set your desired target profits and predefined stop losses, and watch as the algorithm works its magic, closing positions with unrivaled accuracy.",
-  };
-
   const productInfo5 = {
     image:
       "https://images.squarespace-cdn.com/content/v1/644b3fec2f86f819f40064b7/1686148202600-IFL1VG8JMMF5YRR9J3LH/Screenshot+2023-06-06+183103.png?format=750w",
@@ -391,20 +377,6 @@ const Product = () => {
               <RecipeReviewCard
                 {...productInfo3}
                 onBuyClick={() => handleOpenCartModal(productInfo3)}
-              />
-            </div>
-          </motion.div>
-          <motion.div
-            ref={ref3}
-            animate={controls3}
-            initial="hidden"
-            variants={squareVariants}
-            className="square"
-          >
-            <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
-              <RecipeReviewCard
-                {...productInfo4}
-                onBuyClick={() => handleOpenCartModal(productInfo4)}
               />
             </div>
           </motion.div>
