@@ -14,8 +14,8 @@ const comingSoon = () => {
     //console.log("Password:", password);
 
     if (
-      email === "admin@quantinvestmentsgroup.com" &&
-      password === "SecuretheBag7@"
+      email === "support@quantfarming.com" &&
+      password === "UpperEchelon212%"
     ) {
       localStorage.setItem("isLoggedIn", true);
       router.push("/");
