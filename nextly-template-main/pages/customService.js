@@ -22,8 +22,17 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import stockImg from '../images/stock-market-analyst-looking-at-computer-trading-online-analyzing-data.jpg'
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const customService = () => {
+    const router = useRouter(); // Initialize useRouter
+
+    const handleClick = () => {
+        // Route to a different page when the button is clicked
+        router.push("/form");
+    };
+
+
     const [isHovered2, setIsHovered2] = useState(false);
     const cardStyle2 = {
         maxWidth: 400,
@@ -201,9 +210,9 @@ const customService = () => {
                                     <p>Provides you with advanced trading technology that puts you ahead of the competition</p>
                                 </div>
                                 <div className=" flex text-center justify-center">
-                                <a href = "https://qig-form.vercel.app/" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                <button onClick={handleClick} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                     Leave us a message
-                                </a>
+                                </button>
                                 </div>
                             </div>
                         </motion.div>
@@ -236,9 +245,9 @@ const customService = () => {
                                     <p>Provides you with advanced trading technology that puts you ahead of the competition</p>
                                 </div>
                                 <div className=" flex text-center justify-center">
-                                <a href = "https://qig-form.vercel.app/" className=" bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                <button onClick={handleClick} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                     Leave us a message
-                                </a>
+                                </button>
                                 </div>
                                
                             </div>
