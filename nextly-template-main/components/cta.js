@@ -10,12 +10,12 @@ const Cta = () => {
             For general queries
           </h2>
           <p className="mt-2 font-medium text-white text-opacity-90 lg:text-xl">
-            Please email admin@quantinvestmentsgroup.com.
+            Please email support@quantfarming.com.
           </p>
         </div>
         <div className="z-20 flex-shrink-0 w-full text-center lg:w-auto">
           <a
-            href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRspPXWzjTKfQlgzJxVQZPXzWNMGwCVzttlQvsPlLbVTxfhWTRfCxRpkDRHmzZMDNVtnVnq"
+            href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWsTFjgQDjSHDRJwQqklNfTzdfXPcVGphWnGGMnTwFcHhtNhbLHxJBxKsDrMMkpCgPRtfDzKB"
             target="_blank"
             rel="noopener"
             className="inline-block py-3 mx-auto text-lg font-medium text-center text-blue-500 bg-white rounded-md px-7 lg:px-10 lg:py-5 ">

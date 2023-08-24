@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import { Menu } from '@mui/material';
+
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import logoDark from '../images/nav-dark-logo.png';
 import logoLight from '../images/nav-light-logo.png';
@@ -19,22 +13,57 @@ import mobBanner from '../public/img/mobile-banner.png';
 
 import { useTheme } from 'next-themes';
 import { ChevronUpIcon } from '@heroicons/react/24/solid';
+import CartSummaryModal from './CartSummaryModal';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
-const Navbar = () => {
+const Navbar = (isAddCartOpen) => {
   const navigation = ["About Us", "Algos", "Create", "Contact", "Blog"];
   const Mobnavigation = ["About Us", "Algos", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartItemCount, setCartItemCount] = useState(0);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const removeFromCart = (itemToRemove) => {
+    
+    const updatedCart = cartItems.filter(item => item.brand.id !== itemToRemove.brand.id);
+    setCartItems(updatedCart);
+    localStorage.setItem('QIGCartItems', JSON.stringify(updatedCart));
+    toast.error('Item removed from cart', { position: toast.POSITION.BOTTOM_RIGHT });
+
   };
 
-  const handleClose = () => {
-    setOpen(false);
+
+  
+  useEffect(() => {
+    if(isAddCartOpen || isModalOpen ){
+    const storedCartItems = localStorage.getItem('QIGCartItems');
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+      setCartItemCount(cartItems.length);
+      
+    }
+  }
+    
+  }, [isModalOpen, isAddCartOpen]);
+  
+  const handleAddToCart = () => {
+    // Logic to add product to cart
+    setIsModalOpen(true);
   };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+
+  };
+
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
+
 
   const handleMouseEnter = () => {
     setShowDropdown(true);
@@ -44,7 +73,7 @@ const Navbar = () => {
 
   const handleMouseLeave = () => {
     setShowDropdown(false);
-    setSelectedItem(null);
+    
   };
 
 
@@ -120,8 +149,8 @@ const Navbar = () => {
                               : item.toLowerCase() === "contact"
                                 ? "/contact"
                                 : item.toLowerCase() === "blog"
-                                ? "/blog"
-                                : "/"
+                                  ? "/blog"
+                                  : "/"
                         }
                         className="w-full px-4 py-2 -ml-4  rounded-md text-gray-300 hover:text-blue-500 focus:text-blue-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                       >
@@ -178,8 +207,8 @@ const Navbar = () => {
                         : menu.toLowerCase() === "contact"
                           ? "/contact"
                           : menu.toLowerCase() === "blog"
-                          ? "/blog"
-                          : "/customService"
+                            ? "/blog"
+                            : "/customService"
                   }
                   className="inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md text-gray-200 hover:text-blue-500 focus:text-blue-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
@@ -221,16 +250,28 @@ const Navbar = () => {
             Admin Login
           </Link>
 
-         <ThemeChanger /> 
+          <ThemeChanger />
+          <Badge badgeContent={cartItemCount} color="primary">
+            <IconButton onClick={() => handleAddToCart()} color="inherit">
+              <ShoppingCartIcon />
+            </IconButton>
+          </Badge>
+          <CartSummaryModal
+            open={isModalOpen}
+            onClose={handleCloseModal}
+            cartItems={cartItems}
+            removeFromCart={removeFromCart}
+            
+          />
         </div>
 
       </nav>
       <div className="absolute top-0 right-0 inset-0 min-w-full h-full">
-    <Image alt= "a" className="hidden max-w-screen min-h-600 object-right md:inline-block z-0 h-600 md:h-auto md:object-cover md:max-w-none right-0 absolute" src={banner}></Image>
-    <Image  alt = "a" className="md:hidden z-0 md:h-auto md:object-cover w-full right-0 absolute" src={mobBanner}></Image>
-    
-    {/* <div  className="absolute top-0 left-0 z-20 h-600 sm:h-auto bg-cover" style={{backgroundImage : `url(${banner})`}}> */}
-    </div>
+        <Image alt="a" className="hidden max-w-screen min-h-600 object-right md:inline-block z-0 h-600 md:h-auto md:object-cover md:max-w-none right-0 absolute" src={banner}></Image>
+        <Image alt="a" className="md:hidden z-0 md:h-auto md:object-cover w-full right-0 absolute" src={mobBanner}></Image>
+
+        {/* <div  className="absolute top-0 left-0 z-20 h-600 sm:h-auto bg-cover" style={{backgroundImage : `url(${banner})`}}> */}
+      </div>
     </div>
   );
 };
