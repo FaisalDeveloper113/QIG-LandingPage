@@ -39,7 +39,7 @@ const Hero = () => {
                 Accelerate Your Trading Journey with Quant Farming
               </h1>
               <p className="z-10 py-5 text-xl leading-normal  lg:text-xl xl:text-2xl text-gray-300">
-                Grow your trading strategy with Quant Farming, which offers personalized programming solutions..
+                Grow your trading strategy with Quant Farming, which offers personalized programming solutions.
               </p>
             </motion.div>
             {/* <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
