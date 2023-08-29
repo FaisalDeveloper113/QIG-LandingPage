@@ -31,8 +31,8 @@ const benefitOne = {
       icon: <CursorArrowRaysIcon />,
     },
     {
-      title: "Account Management",
-      desc: "Trust your financial success to our expert Account Management services. With a focus on risk management and tailored strategies, we diligently oversee and grow your investment portfolio. Our seasoned professionals navigate the markets, making informed decisions to optimize returns while preserving capital. ",
+      title: "Algo Management",
+      desc: "Trust your financial success to our expert Algo Management services. With a focus on risk management and tailored strategies, we offer web-based hosting and input optimization for algo products for the ever changing markets. Our seasoned professionals navigate market conditions, making informed decisions to optimize algorithmic trading returns while preserving capital. ",
       icon: <CursorArrowRaysIcon />,
     },
   ],

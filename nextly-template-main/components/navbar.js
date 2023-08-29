@@ -179,7 +179,7 @@ const Navbar = (isAddCartOpen) => {
                       )}
                     </Disclosure>
                     <Link
-                      href="https://qig-dashboard-frontend.vercel.app/login"
+                      href="https://quantfarming-dashboard.vercel.app/login"
                       className="w-full px-6 py-2 mt-3 text-center text-white bg-blue-500 rounded-md lg:ml-5"
                     >
                       Admin Login
@@ -244,7 +244,7 @@ const Navbar = (isAddCartOpen) => {
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
           <Link
-            href="https://qig-dashboard-frontend.vercel.app/login"
+            href="https://quantfarming-dashboard.vercel.app/login"
             className="px-6 py-2 text-white bg-blue-500 rounded-md md:ml-5"
           >
             Admin Login
