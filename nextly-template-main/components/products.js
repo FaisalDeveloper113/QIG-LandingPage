@@ -11,7 +11,7 @@ const ProductCard = (props) => {
         <>
             <div className=" md:max-w-5xl flex flex-col md:flex-row z-20 relative m-4 p-4 shadow-xl rounded-lg bg-trueGray-100 dark:bg-trueGray-800">
                 <div className="flex-1 md:min-w-[470px]">
-                    <Link href={`/productDetail?name=${encodeURIComponent(brand.name)}`} passHref> 
+                    <Link href={`/productDetail?name=${encodeURIComponent(brand.name)}&id=${encodeURIComponent(brand.id)}`} passHref> 
                         <img className="w-[100%] md:min-w-[470px] h-auto max-w-full"
                             // style={{
                             //     width: "100%",
