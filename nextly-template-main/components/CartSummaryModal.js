@@ -122,7 +122,7 @@ const CartSummaryModal = ({ open, onClose, cartItems, removeFromCart }) => {
     return <p>Loading...</p>; // or some other fallback content
   }
   return (
-    <Modal
+    <Modal className=''
       open={open}
       onClose={onClose}
       aria-labelledby="modal-title"
@@ -130,7 +130,7 @@ const CartSummaryModal = ({ open, onClose, cartItems, removeFromCart }) => {
 
     >
    
-      <Box
+      <Box className = ' darK:text-white  bg-white dark:bg-trueGray-900'
         sx={{
           position: 'absolute',
           top: '50%',

@@ -30,7 +30,7 @@ const Navbar = (isAddCartOpen) => {
   const [cartItemCount, setCartItemCount] = useState(0);
 
   const removeFromCart = (itemToRemove) => {
-    
+
     const updatedCart = cartItems.filter(item => item.brand.id !== itemToRemove.brand.id);
     setCartItems(updatedCart);
     localStorage.setItem('QIGCartItems', JSON.stringify(updatedCart));
@@ -39,19 +39,19 @@ const Navbar = (isAddCartOpen) => {
   };
 
 
-  
+
   useEffect(() => {
-    if(isAddCartOpen || isModalOpen ){
-    const storedCartItems = localStorage.getItem('QIGCartItems');
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-      setCartItemCount(cartItems.length);
-      
+    if (isAddCartOpen || isModalOpen) {
+      const storedCartItems = localStorage.getItem('QIGCartItems');
+      if (storedCartItems) {
+        setCartItems(JSON.parse(storedCartItems));
+        setCartItemCount(cartItems.length);
+
+      }
     }
-  }
-    
+
   }, [isModalOpen, isAddCartOpen]);
-  
+
   const handleAddToCart = () => {
     // Logic to add product to cart
     setIsModalOpen(true);
@@ -73,7 +73,7 @@ const Navbar = (isAddCartOpen) => {
 
   const handleMouseLeave = () => {
     setShowDropdown(false);
-    
+
   };
 
 
@@ -138,6 +138,8 @@ const Navbar = (isAddCartOpen) => {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 mx-10 lg:hidden">
                   <>
+                  
+                   
                     {Mobnavigation.map((item, index) => (
                       <Link
                         key={index}
@@ -178,12 +180,26 @@ const Navbar = (isAddCartOpen) => {
                         </>
                       )}
                     </Disclosure>
-                    <Link
-                      href="https://quantfarming-dashboard.vercel.app/login"
-                      className="w-full px-6 py-2 mt-3 text-center text-white bg-blue-500 rounded-md lg:ml-5"
-                    >
-                      Admin Login
-                    </Link>
+
+                   <div className='flex w-full'>
+                      <Link
+                        href="https://quantfarming-dashboard.vercel.app/login"
+                        className=" p-5 center flex-1 mr-2 w-full mt-3 text-center text-white bg-blue-500 rounded-md lg:ml-5"
+                      >
+                        Admin Login
+                      </Link>
+                      <Link
+                        href=""
+                        className=" flex-1 w-full px-6 pt-4 mt-3 text-center text-white border-white border rounded-md lg:ml-5"
+                      >
+                      <Badge badgeContent={cartItemCount} color="primary">
+                        <IconButton onClick={() => handleAddToCart()} color="inherit">
+                          <ShoppingCartIcon className=' text-white dark:text-white' />
+                        </IconButton>
+                      </Badge>
+                      </Link>
+                      </div>
+                      
                   </>
                 </Disclosure.Panel>
               </div>
@@ -253,7 +269,7 @@ const Navbar = (isAddCartOpen) => {
           <ThemeChanger />
           <Badge badgeContent={cartItemCount} color="primary">
             <IconButton onClick={() => handleAddToCart()} color="inherit">
-              <ShoppingCartIcon />
+              <ShoppingCartIcon className=' text-white dark:text-white' />
             </IconButton>
           </Badge>
           <CartSummaryModal
@@ -261,7 +277,7 @@ const Navbar = (isAddCartOpen) => {
             onClose={handleCloseModal}
             cartItems={cartItems}
             removeFromCart={removeFromCart}
-            
+
           />
         </div>
 

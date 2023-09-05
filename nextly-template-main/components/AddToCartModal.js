@@ -68,7 +68,7 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
         >
-            <Box
+            <Box className = ' darK:text-white  bg-white dark:bg-trueGray-900'
                 sx={{
                     position: 'absolute',
                     top: '50%',
@@ -119,7 +119,7 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
                             }`}>
                             <FormControlLabel
                                 value="gold"
-                                control={<Radio className=' text-white' />}
+                                control={<Radio className=' text-black dark:text-white' />}
                                 label="GOLD"
                             /><Tooltip title=
                                 {<React.Fragment>

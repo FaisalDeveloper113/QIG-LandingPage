@@ -30,8 +30,8 @@ const Testimonials  = () => {
 
             <Avatar
               image={userTwoImg}
-              name="Alexander Accoyle"
-              title="Banking"
+              name="Heri kaniugu"
+              title="Data Analyst"
             />
           </div>
         </div>

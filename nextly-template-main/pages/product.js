@@ -238,7 +238,7 @@ const Product = () => {
       id: 6,
       name: "Alpha Algo Suite ",
     },
-    price: 2499,
+    price: 1499,
     gold: 129,
     formattedPrice: "$2499",
     description:
