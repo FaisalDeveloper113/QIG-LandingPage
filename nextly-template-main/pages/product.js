@@ -240,7 +240,7 @@ const Product = () => {
     },
     price: 1499,
     gold: 129,
-    formattedPrice: "$2499",
+    formattedPrice: "$1499",
     description:
       "Experience the full power of algorithmic trading with our Alpha Algo Suite – an all-encompassing, dynamic package for the MT4 platform that brings together the Accelerator Momentum Algo, Fortress Algo, Polaris Trend Indicator, and the game-changing Order Management System. This suite is a masterfully curated collection of our most sophisticated tools, designed to seamlessly integrate and elevate your trading journey.",
   };
