@@ -26,7 +26,7 @@ const productDetail = () => {
       'Algo is more than just a strategy - it is a revolution in trading technology. With Apex, trade'+
       'with the accuracy and confidence of a seasoned market veteran.',
       basic:
-      '<br><br>BASIC - Features:'+
+      '<br><br><Strong>BASIC - Features:</Strong>'+
       '<br>RSI based Strategy, Cross below value, cross above value'+
       '<br>TP @ Value'+
       '<br>SL @ Value'+
@@ -60,7 +60,7 @@ const productDetail = () => {
       "with the Accelerator Momentum Algo, as it navigates the market's momentum with precision " +
       "and speed.",
       basic:
-      '<br><br>BASIC - Features:'+
+      '<br><br><Strong>BASIC - Features:</Strong>'+
       '<br>RSI based Strategy, Cross below value, cross above value'+
       '<br>TP @ Value'+
       '<br>SL @ Value'+
@@ -141,7 +141,7 @@ const productDetail = () => {
         "with the Accelerator Momentum Algo, as it navigates the market's momentum with precision " +
         "and speed.",
         basic:
-        '<br><br>BASIC - Features:'+
+        '<br><br><Strong>BASIC - Features:</Strong>'+
         '<br>RSI based Strategy, Cross below value, cross above value'+
         '<br>TP @ Value'+
         '<br>SL @ Value'+
@@ -176,15 +176,18 @@ const productDetail = () => {
         </Head>
 
         <Navbar />
-        <Container  >
-            <h1 style = {{marginTop:'150px'}} className="z-index relative mt-100 text-center text-4xl font-bold leading-snug tracking-tight lg:text-8xl lg:leading-tight xl:text-8xl xl:leading-tight text-white">
+        <div  >
+            <h1 style = {{marginTop:'150px'}} className="font-mono z-index relative mt-100 text-center text-4xl font-bold leading-snug tracking-tight lg:text-6xl lg:leading-tight xl:text-6xl xl:leading-tight text-white">
                 
                 {name}
             </h1>
            
-            <p style = {{marginTop:'200px'}} className="z-index relative text-black dark:text-white" dangerouslySetInnerHTML={{ __html: product.description }}></p>
-            <p  className="text-black dark:text-white" dangerouslySetInnerHTML={{ __html: product.basic }}></p>
-        </Container>
+           <div style = {{marginTop:'150px'}} className="  font-mono w-full relative text-lg p-8 lg:p-14 xl:p-14 bg-white dark:bg-trueGray-800">
+            <p className="z-index relative text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: product.description }}></p>
+            <p  className="text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: product.basic }}></p>
+            </div>
+        </div>
+        <Footer />
         </>
      );
 }
