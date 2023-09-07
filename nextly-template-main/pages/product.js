@@ -22,7 +22,7 @@ const envFilePath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envFilePath });
 const backend_url = "https://qig-dashboard.vercel.app"; //process.env.NE4XT_PUBLIC_backend_url;
 const client_id =
-  "ATP98nmGlWaVc94673pYwwecXCWE6um7pSH3wey6NaONBrLZ6P3w9hl-FTHT293NxZeDU43fEIT-cFZy"; //process.env.NEXT_PUBLIC_client_id;
+  "ATi0VfudgXr6_rvglazl19FTSyDUNC_9oi6B79pgF2xArrik7rMqC--U5JfUd4-8hrmw0X0pQf6oxC9U"; //process.env.NEXT_PUBLIC_client_id;
 
 const checkLoggedIn = () => {
   return new Promise((resolve) => {
