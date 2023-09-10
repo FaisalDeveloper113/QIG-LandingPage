@@ -14,7 +14,7 @@ import InfoIcon from '@mui/icons-material/Info';
 
 
 const AddToCartModal = ({ open, onClose, productInfo }) => {
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('silver');
     const [cartItems, setCartItems] = useState([]);
 
     const handleOptionChange = (event) => {
@@ -26,24 +26,24 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
         setTooltipOpen(!tooltipOpen);
     };
     useEffect(() => {
-       
+
         const storedCartItems = localStorage.getItem('QIGCartItems');
         if (storedCartItems) {
-          setCartItems(JSON.parse(storedCartItems));
-          
-          
+            setCartItems(JSON.parse(storedCartItems));
+
+
         }
-      
-        
-      }, [open]);
-    
+
+
+    }, [open]);
+
 
     const addToCart = (product) => {
         const isProductInCart = cartItems.some((item) => item.brand.id === product.brand.id);
 
         // If the product is not in the cart, add it
         if (!isProductInCart) {
-            if(selectedOption == 'gold'){
+            if (selectedOption == 'gold') {
                 product.price = product.price + product.gold;
             }
             const updatedCart = [...cartItems, product];
@@ -68,7 +68,7 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
         >
-            <Box className = ' darK:text-white  bg-white dark:bg-trueGray-900'
+            <Box className=' darK:text-white  bg-white dark:bg-trueGray-900'
                 sx={{
                     position: 'absolute',
                     top: '50%',
@@ -87,6 +87,7 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
                     {productInfo.brand.name}
                 </Typography>
                 <Divider className="bg-gray-600 my-2" />
+                
                 <RadioGroup
                     aria-label="options"
                     name="options"
@@ -94,14 +95,14 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
                     onChange={handleOptionChange}
                 >
                     <div style={{ width: '100%' }} className='flex flex-col gap-2'>
-                        <div className={` border border-gray-300 rounded-md flex-1 p-4 ${selectedOption === 'silver' ? ' bg-gray-300 text-black' : ''
+                        <div className={` rounded-md flex-1 p-4 ${selectedOption === 'silver' ? '' : ''
                             }`}>
-                            <FormControlLabel
+                            {/* <FormControlLabel
                                 value="silver"
-                                control={<Radio className=' text-white' />}
-                                label="SILVER"
-                            />
-                            <Tooltip title=
+                                control={<Radio className=' hidden text-white' />}
+                                label="Plan: BASIC"
+                            /> */}
+                            {/* <Tooltip title=
                                 {<React.Fragment>
                                     <Typography color="inherit">BASIC</Typography>
                                     {'Features:'}<br />
@@ -110,18 +111,23 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
                                     {'SL @ Value'}
 
                                 </React.Fragment>}
-                            ><InfoIcon /></Tooltip>
+                            ><InfoIcon /></Tooltip> */}
                             <Typography variant="body2">
-                               <p className=' text-xl'>${productInfo.price}</p>
+                            <p className=' my-2 text-center text-xl text-gray-500'>Basic</p>
+                            <p className=' my-5 text-center text-6xl text-green-600'>${productInfo.price}</p>
+                            
+                                
+                                <p className=' my-2 text-center'>Do you want to add this product to cart?</p>
                             </Typography>
                         </div>
-                        <div className={`border border-yellow-400 rounded-md flex-1 p-4 ${selectedOption === 'gold' ? 'bg-yellow-400 text-black' : ''
+                        {/* <div className={`border border-yellow-400 rounded-md flex-1 p-4 ${selectedOption === 'gold' ? 'bg-yellow-400 text-black' : ''
                             }`}>
                             <FormControlLabel
                                 value="gold"
                                 control={<Radio className=' text-black dark:text-white' />}
                                 label="GOLD"
-                            /><Tooltip title=
+                            />
+                            <Tooltip title=
                                 {<React.Fragment>
                                     <Typography color="inherit">+ EXPERT ORDER MANAGEMENT</Typography>
                                     Features:<br />
@@ -131,14 +137,14 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
                                     % orders closed per trade<br />
                                     Time Filter
                                     Volume Filter<br />
-                                    
+
 
                                 </React.Fragment>}
                             ><InfoIcon /></Tooltip>
                             <Typography variant="body2">
-                            <p className=' text-xl'>${productInfo.price} + ${productInfo.gold}</p> 
+                                <p className=' text-xl'>${productInfo.price} + ${productInfo.gold}</p>
                             </Typography>
-                        </div>
+                        </div> */}
                     </div>
                 </RadioGroup>
                 <div className='flex flex-row gap-4 mt-6'>
@@ -146,7 +152,7 @@ const AddToCartModal = ({ open, onClose, productInfo }) => {
                         Close
                     </Button>
                     <Button onClick={() => addToCart(productInfo)} className='flex-1 bg-blue-500' color="primary" variant='contained'>
-                        Add
+                        Yes
                     </Button>
 
                 </div>
