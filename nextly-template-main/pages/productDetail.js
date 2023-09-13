@@ -18,18 +18,7 @@ const envFilePath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envFilePath });
 const backend_url = "https://qig-dashboard.vercel.app"; //process.env.NE4XT_PUBLIC_backend_url;
 const client_id =
-  "ATi0VfudgXr6_rvglazl19FTSyDUNC_9oi6B79pgF2xArrik7rMqC--U5JfUd4-8hrmw0X0pQf6oxC9U"; //process.env.NEXT_PUBLIC_client_id;
-
-const checkLoggedIn = () => {
-  return new Promise((resolve) => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn !== "true") {
-      resolve(false);
-    } else {
-      resolve(true);
-    }
-  });
-};
+  "AVF0lq4-CN4iyl3fDSey9OC-OPrQt-PEHHqt5S2L_4JZcV14kh5CKduRl9CXe8rx5KwgQEC-x3DVptIn"; //process.env.NEXT_PUBLIC_client_id;
 
 const productDetail = () => {
   
@@ -83,7 +72,7 @@ const productDetail = () => {
 
   const createOrder = async (productInfo) => {
     const url = `${backend_url}/create-paypal-order`; // Replace with your desired endpoint
-    console.log("URL : ", url);
+    //console.log("URL Product Details : ", url);
     const data = {
       id: productInfo.brand.id,
       name: productInfo.brand.name,

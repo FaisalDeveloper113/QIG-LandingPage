@@ -11,28 +11,9 @@ import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-const checkLoggedIn = () => {
-  return new Promise((resolve) => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn !== "true") {
-      resolve(false);
-    } else {
-      resolve(true);
-    }
-  });
-};
-
 const blog = ({ blogs }) => {
   ////////////////
-  const router = useRouter();
 
-  useEffect(() => {
-    checkLoggedIn().then((loggedIn) => {
-      if (!loggedIn) {
-        router.push("/comingSoon");
-      }
-    });
-  }, [router]);
   /////////////
   const settings = {
     dots: true,
