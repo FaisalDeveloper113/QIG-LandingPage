@@ -12,7 +12,7 @@ const axios = require("axios");
 
 const backend_url = "https://qig-dashboard.vercel.app";
 const client_id =
-  "ATP98nmGlWaVc94673pYwwecXCWE6um7pSH3wey6NaONBrLZ6P3w9hl-FTHT293NxZeDU43fEIT-cFZy";
+  "AVF0lq4-CN4iyl3fDSey9OC-OPrQt-PEHHqt5S2L_4JZcV14kh5CKduRl9CXe8rx5KwgQEC-x3DVptIn";
 
 const CartSummaryModal = ({ open, onClose, cartItems, removeFromCart }) => {
 
@@ -50,7 +50,7 @@ const CartSummaryModal = ({ open, onClose, cartItems, removeFromCart }) => {
 
   const createOrder = async (totalPrice) => {
     const url = `${backend_url}/create-paypal-order`; // Replace with your desired endpoint
-    console.log("URL : ", url);
+    //console.log("URL Cart Modal Summary : ", url);
     const data = {
       id: 1,
       name: "All",

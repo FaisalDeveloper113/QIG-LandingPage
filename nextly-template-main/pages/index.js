@@ -16,29 +16,7 @@ import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-const checkLoggedIn = () => {
-  return new Promise((resolve) => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    if (isLoggedIn !== "true") {
-      resolve(false);
-    } else {
-      resolve(true);
-    }
-  });
-};
-
 const Home = () => {
-  ////////////////
-  const router = useRouter();
-
-  useEffect(() => {
-    checkLoggedIn().then((loggedIn) => {
-      if (!loggedIn) {
-        router.push("/comingSoon");
-      }
-    });
-  }, [router]);
-  ///////////////
 
   const controls = useAnimation();
   const [ref, inView] = useInView();
