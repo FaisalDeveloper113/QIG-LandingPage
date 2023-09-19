@@ -21,9 +21,12 @@ const client_id =
   "AVF0lq4-CN4iyl3fDSey9OC-OPrQt-PEHHqt5S2L_4JZcV14kh5CKduRl9CXe8rx5KwgQEC-x3DVptIn"; //process.env.NEXT_PUBLIC_client_id;
 
 const productDetail = () => {
-  
   const router = useRouter();
   const { name, id } = router.query;
+  const handleClick = () => {
+    // Route to a different page when the button is clicked
+    router.push("/form");
+};
 
   const [selectedProductInfo, setSelectedProductInfo] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -150,7 +153,7 @@ const productDetail = () => {
     price: 899,
     gold: 129,
     formattedPrice: "$899",
-   };
+  };
 
   const productInfo2 = {
     image: "https://s3.tradingview.com/5/5Th1xKZZ_mid.png",
@@ -161,7 +164,7 @@ const productDetail = () => {
     price: 899,
     gold: 129,
     formattedPrice: "$899",
-  
+
   };
 
   const productInfo3 = {
@@ -174,7 +177,7 @@ const productDetail = () => {
     price: 499,
     gold: 129,
     formattedPrice: "$499",
-    };
+  };
 
   const productInfo5 = {
     image:
@@ -186,7 +189,7 @@ const productDetail = () => {
     price: 499,
     gold: 129,
     formattedPrice: "$499",
-     };
+  };
 
   const productInfo6 = {
     image:
@@ -198,13 +201,13 @@ const productDetail = () => {
     price: 1499,
     gold: 129,
     formattedPrice: "$1499",
-      };
+  };
 
   const products = [
     {
       id: '1',
       brand: {
-        
+
         name: "Apex Mean Reversion Algo",
       },
       price: 899,
@@ -239,7 +242,7 @@ const productDetail = () => {
     {
       id: '2',
       brand: {
-        
+
         name: "Momentum EMA Crossover",
       },
       price: 899,
@@ -276,19 +279,19 @@ const productDetail = () => {
     {
       id: '5',
       brand: {
-        
+
         name: "Trend Indicator",
       },
       price: 499,
       description: "The ACT Trend Indicator, a state-of-the-art tool for MT4 and TradingView platforms. This " +
         "cutting-edge solution harnesses the power of customizable moving averages, offering you the " +
         "perfect compass to guide your trading decisions in ever-shifting markets. " +
-        "The ACT Trend Indicator goes beyond the traditional confines of standard trend indicators. With " +
+        "The ACT Trend Indicator goes beyond the traditional confines of standard trend indicators. <br><br>With " +
         "its core engine powered by customizable moving averages, it offers you an unparalleled degree " +
         "of flexibility in tailoring your trend analysis. The indicators also use customizable relative " +
         "strength inputs, that help find liquidity zones and reversions. This means you can fine-tune the " +
         "tool to suit your unique trading style and goals, ensuring maximum relevance to your analysis. " +
-        "User-friendliness is the hallmark of the ACT Trend Indicator. Regardless of your experience level, " +
+        "<br><br>User-friendliness is the hallmark of the ACT Trend Indicator. Regardless of your experience level, " +
         "you'll find the tool intuitive to use on both MT4 and TradingView. It offers clear, easy-to-interpret " +
         "visuals that help you quickly identify prevailing trends and potential reversals. Underneath the " +
         "simple interface, advanced algorithms work tirelessly, ensuring the accuracy and reliability of " +
@@ -305,7 +308,7 @@ const productDetail = () => {
     {
       id: '6',
       brand: {
-       
+
         name: "Alpha Algo Suite ",
       },
       price: 1499,
@@ -315,13 +318,13 @@ const productDetail = () => {
         "Management algo, with inclusion of the ACT TradingView Indicator. This suite is a " +
         "masterfully curated collection of our most sophisticated tools, designed to seamlessly " +
         "integrate and elevate your trading journey. " +
-        "The combination of these tools provide for a fully automated, sophisticated trading " +
+        "<br><br>The combination of these tools provide for a fully automated, sophisticated trading " +
         "system designed to maximize returns hands-free. With full transparency of the system, " +
         "you’ll know exactly how it runs with video descriptions and walkthroughs. The algo is " +
         "yours to run, with full setup on your own virtual private server, where you can make " +
         "adjustments to adapt the algo to market conditions, in addition to being connected with " +
         "a community of traders all running the algo. " +
-        "Whether you're a seasoned trader or new to the field, our program ensures a seamless, " +
+        "<br><br>Whether you're a seasoned trader or new to the field, our program ensures a seamless, " +
         "collaborative, and secure experience that aligns with your trading goals. Revolutionize " +
         "your trading journey by harnessing the power of AI, risk management, and personalized " +
         "algorithms, and watch as your trading ideas evolve into automated strategies that " +
@@ -334,7 +337,7 @@ const productDetail = () => {
     {
       id: '3',
       brand: {
-        
+
         name: "Fortress Risk Management ",
       },
       price: 499,
@@ -344,13 +347,13 @@ const productDetail = () => {
         "learning capabilities. Built to capture the powerful undercurrents of market trends, this software " +
         "expertly identifies key crossover points between short-term and long-term moving averages, " +
         "offering potential entry and exit points for your trades. " +
-        "Its user-friendly interface ensures seamless navigation, real-time analytics, and effortless " +
+        "<br><br>Its user-friendly interface ensures seamless navigation, real-time analytics, and effortless " +
         "visualization of moving average crossovers. The software's customization options allow you to " +
         "adjust your moving average parameters, aligning perfectly with your unique trading style, risk " +
         "tolerance, and investment goals. With a sophisticated filtering system, it skillfully differentiates " +
         "between significant market signals and mere noise, empowering you with high-quality trade " +
         "opportunities. " +
-        "We value your security as much as your success. The Accelerator Momentum Algo is fortified " +
+        "<br><br>We value your security as much as your success. The Accelerator Momentum Algo is fortified " +
         "with state-of-the-art encryption protocols and multiple layers of cybersecurity measures, " +
         "ensuring the utmost safety of your investments and personal data. Propel your trading journey " +
         "with the Accelerator Momentum Algo, as it navigates the market's momentum with precision " +
@@ -390,7 +393,7 @@ const productDetail = () => {
       </Head>
 
       <Navbar />
-      <AddToCartModal productInfo = {selectedProductInfo}  open={isAddCartOpen} onClose={handleCloseCartModal} />
+      <AddToCartModal productInfo={selectedProductInfo} open={isAddCartOpen} onClose={handleCloseCartModal} />
       <div  >
         <h1 style={{ marginTop: '150px' }} className="font-mono z-index relative mt-100 text-center text-4xl font-bold leading-snug tracking-tight lg:text-6xl lg:leading-tight xl:text-6xl xl:leading-tight text-white">
 
@@ -404,18 +407,27 @@ const productDetail = () => {
         </h1>
 
 
-        <div style={{ marginTop: '10px' }} className="font-mono w-full relative text-lg p-8 lg:p-14 xl:p-14 bg-white dark:bg-trueGray-800">
-          <div style={{ textAlign: 'justify', marginLeft: '5%', marginRight: '5%' }}>
-            <p className="z-index relative text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: product.description }}></p>
+        <div className="font-mono w-full relative text-lg p-4 lg:p-8 xl:p-8 bg-white dark:bg-trueGray-800">
+          <div className="text-center">
+            <p className="text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: product.description }}></p>
 
             <p className="text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: product.basic }}></p>
           </div>
-        </div>
-        <div className="bg-white dark:bg-trueGray-800 text-right p-8 lg:px-24 xl:px-24">
-        <button onClick={() => handleOpenCartModal(product)} className= " bg-blue-500 text-white py-2 px-4 rounded-3xl relative left-0"><ShoppingBasketIcon className="mr-2" />  Add to cart</button>
 
+          <div className="flex-1 p-4 flex flex-row-reverse">
+          <button onClick={handleClick} className="bg-blue-500 text-white py-2 px-4 rounded-3xl">
+          Inquire about this product
+          </button>
         </div>
-        
+        </div>
+
+
+
+        {/*
+        <div className="bg-white dark:bg-trueGray-800 text-right p-8 lg:px-24 xl:px-24">
+            <button onClick={() => handleOpenCartModal(product)} className=" bg-blue-500 text-white py-2 px-4 rounded-3xl relative left-0"><ShoppingBasketIcon className="mr-2" />  Add to cart</button>
+        </div>
+          */}
 
 
       </div>

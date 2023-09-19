@@ -21,8 +21,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
 const Navbar = (isAddCartOpen) => {
-  const navigation = ["About Us", "Algos", "Create", "Contact", "Blog"];
-  const Mobnavigation = ["About Us", "Algos", "Contact", "Blog"];
+  const navigation = [ "Algos", "Create", "Contact"];;//["About Us", "Algos", "Create", "Contact", "Blog"];
+  const Mobnavigation = [ "Algos", "Contact"]; //["About Us", "Algos", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
