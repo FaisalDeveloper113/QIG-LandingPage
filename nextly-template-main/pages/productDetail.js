@@ -190,7 +190,7 @@ const productDetail = () => {
 
   const productInfo6 = {
     image:
-      "https://images.theconversation.com/files/527509/original/file-20230522-25-fn6rwh.jpeg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
+      "https://s3.tradingview.com/c/c8ydw2Xb_mid.png",
     brand: {
       id: 6,
       name: "Alpha Algo Suite ",
@@ -328,7 +328,7 @@ const productDetail = () => {
         "resonate with your individual style and preferences.",
       basic:
         '',
-      image: 'https://images.theconversation.com/files/527509/original/file-20230522-25-fn6rwh.jpeg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip'
+      image: 'https://s3.tradingview.com/c/c8ydw2Xb_mid.png'
 
     },
     {

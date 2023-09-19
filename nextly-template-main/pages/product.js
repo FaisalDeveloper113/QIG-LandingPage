@@ -41,7 +41,7 @@ const Product = () => {
   const controls4 = useAnimation();
   const [ref5, inView5] = useInView();
   const controls5 = useAnimation();
-  
+
   const [selectedProductInfo, setSelectedProductInfo] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleCardBuyClick = (productInfo) => {
@@ -206,14 +206,14 @@ const Product = () => {
     },
     price: 499,
     gold: 129,
-    formattedPrice: "$499",
+    formattedPrice: "$299",
     description:
       "The Polaris Trend Indicator goes beyond the traditional confines of standard trend indicators. With its core engine powered by customizable moving averages. The indicator is intuitively designed to dynamically adjust to your selected moving average parameters, whether you're focusing on short-term trading opportunities or long-term investment strategies. This means you can fine-tune the tool to suit your unique trading style and goals, ensuring maximum relevance to your analysis.",
   };
 
   const productInfo6 = {
     image:
-      "https://images.theconversation.com/files/527509/original/file-20230522-25-fn6rwh.jpeg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
+      "https://s3.tradingview.com/c/c8ydw2Xb_mid.png",
     brand: {
       id: 6,
       name: "Alpha Algo Suite ",
@@ -267,26 +267,26 @@ const Product = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar isAddCartOpen = {isAddCartOpen} />
+      <Navbar isAddCartOpen={isAddCartOpen} />
       <Container>
         <h1
           style={{ marginTop: "150px", marginBottom: "150px" }}
           className="z-20 relative text-center lg:px-10 text-4xl font-bold leading-snug tracking-tight  lg:text-8xl lg:leading-tight xl:text-8xl xl:leading-tight text-white"
         >
-          Our Products
+          Algorithms
         </h1>
       </Container>
       <Container>
         <div
           className="flex flex-col items-center"
-          style={{marginTop:'-150px'}}
-          // style={{
-          //     display: 'flex',
-          //     flexDirection: ['column', 'row'],
-          //     gap: '3rem',
-          //     marginLeft: '5rem',
-          //     marginRight: '5rem',
-          // }}
+          style={{ marginTop: '-150px' }}
+        // style={{
+        //     display: 'flex',
+        //     flexDirection: ['column', 'row'],
+        //     gap: '3rem',
+        //     marginLeft: '5rem',
+        //     marginRight: '5rem',
+        // }}
         >
           {isModalOpen && (
             <div
@@ -309,7 +309,7 @@ const Product = () => {
                 placeItems: "center",
               }}
             >
-              
+
               <span
                 className="absolute right-3 top-3 cursor-pointer font-weight-bold"
                 onClick={handleModalClose}
@@ -318,7 +318,8 @@ const Product = () => {
               </span>
             </div>
           )}
-          <AddToCartModal productInfo = {selectedProductInfo}  open={isAddCartOpen} onClose={handleCloseCartModal} />
+          <AddToCartModal productInfo={selectedProductInfo} open={isAddCartOpen} onClose={handleCloseCartModal} />
+          {/*
           <motion.div
             ref={ref}
             animate={controls}
@@ -333,6 +334,7 @@ const Product = () => {
               />
             </div>
           </motion.div>
+
           <motion.div
             ref={ref1}
             animate={controls1}
@@ -347,20 +349,8 @@ const Product = () => {
               />
             </div>
           </motion.div>
-          <motion.div
-            ref={ref2}
-            animate={controls2}
-            initial="hidden"
-            variants={squareVariants}
-            className="square"
-          >
-            <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
-              <RecipeReviewCard
-                {...productInfo3}
-                onBuyClick={() => handleOpenCartModal(productInfo3)}
-              />
-            </div>
-          </motion.div>
+        */}
+
           <motion.div
             ref={ref4}
             animate={controls4}
@@ -372,6 +362,20 @@ const Product = () => {
               <RecipeReviewCard
                 {...productInfo5}
                 onBuyClick={() => handleOpenCartModal(productInfo5)}
+              />
+            </div>
+          </motion.div>
+          <motion.div
+            ref={ref2}
+            animate={controls2}
+            initial="hidden"
+            variants={squareVariants}
+            className="square"
+          >
+            <div className="flex-1 transition-transform transform hover:scale-105 duration-500">
+              <RecipeReviewCard
+                {...productInfo3}
+                onBuyClick={() => handleOpenCartModal(productInfo3)}
               />
             </div>
           </motion.div>
