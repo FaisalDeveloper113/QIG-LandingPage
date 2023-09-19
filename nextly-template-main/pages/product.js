@@ -204,7 +204,7 @@ const Product = () => {
       id: 5,
       name: "Trend Indicator",
     },
-    price: 499,
+    price: 299,
     gold: 129,
     formattedPrice: "$299",
     description:
