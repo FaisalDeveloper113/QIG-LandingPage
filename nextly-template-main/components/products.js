@@ -34,6 +34,7 @@ const ProductCard = (props) => {
                     <div className="flex-1 p-4 flex flex-row text-left">
                         <p className="sm:text-4xl text-xl font-weight-bold ">{brand.name}</p>
                     </div>
+                    <Divider className="bg-gray-600 ml-4" />
                     <br />
                     <br />
                     <br />
@@ -44,6 +45,7 @@ const ProductCard = (props) => {
                             Leave us a message
                         </button>
                     </div>
+                    <Divider className="bg-gray-600 ml-4" />
                     {/* 
                     <Divider className="bg-gray-600 ml-4" />
                     <div className="flex-1 p-4 flex flex-row text-left">
