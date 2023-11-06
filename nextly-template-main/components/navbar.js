@@ -181,13 +181,13 @@ const Navbar = (isAddCartOpen) => {
 
                     <div className="flex w-full">
                       <Link
-                        href="https://quantfarming-dashboard.vercel.app/login?role=admin"
+                        href="https://quantfarming-dashboard.vercel.app/loginAdmin"
                         className="p-5 center flex-1 mr-2 w-full mt-3 text-center text-white bg-blue-500 rounded-md lg:ml-5"
                       >
                         Admin Login
                       </Link>
                       <Link
-                        href="https://quantfarming-dashboard.vercel.app/login?role=user"
+                        href="http://quantfarming-dashboard.vercel.app/login"
                         className="flex-1 w-full px-6 pt-4 mt-3 text-center text-white border-white border rounded-md lg:ml-5"
                       >
                         User Login
@@ -260,7 +260,7 @@ const Navbar = (isAddCartOpen) => {
             <ul className="absolute hidden top-full left-1/2 transform -translate-x-1/2 mt-1 w-40 text-white rounded-md z-10 group-hover:block">
               <li>
                 <a
-                  href="https://quantfarming-dashboard.vercel.app/login?role=admin"
+                  href="https://quantfarming-dashboard.vercel.app/loginAdmin"
                   className="block p-3 hover:bg-golden text-center"
                 >
                   Admin Login
@@ -268,7 +268,7 @@ const Navbar = (isAddCartOpen) => {
               </li>
               <li>
                 <a
-                  href="https://quantfarming-dashboard.vercel.app/login?role=user"
+                  href="https://quantfarming-dashboard.vercel.app/login"
                   className="block p-3 hover-bg-golden text-center"
                 >
                   User Login
