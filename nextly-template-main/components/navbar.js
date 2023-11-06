@@ -21,8 +21,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
 const Navbar = (isAddCartOpen) => {
-  const navigation = [ "Algos", "Create", "Contact"];;//["About Us", "Algos", "Create", "Contact", "Blog"];
-  const Mobnavigation = [ "Algos", "Contact"]; //["About Us", "Algos", "Contact", "Blog"];
+  const navigation = ["Algos", "Create", "Contact"];;//["About Us", "Algos", "Create", "Contact", "Blog"];
+  const Mobnavigation = ["Algos", "Contact"]; //["About Us", "Algos", "Contact", "Blog"];
   const [open, setOpen] = React.useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,8 +75,6 @@ const Navbar = (isAddCartOpen) => {
     setShowDropdown(false);
 
   };
-
-
 
   return (
     <div className="w-full relative">
@@ -138,8 +136,8 @@ const Navbar = (isAddCartOpen) => {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 mx-10 lg:hidden">
                   <>
-                  
-                   
+
+
                     {Mobnavigation.map((item, index) => (
                       <Link
                         key={index}
@@ -181,25 +179,21 @@ const Navbar = (isAddCartOpen) => {
                       )}
                     </Disclosure>
 
-                   <div className='flex w-full'>
+                    <div className="flex w-full">
                       <Link
-                        href="https://quantfarming-dashboard.vercel.app/login"
-                        className=" p-5 center flex-1 mr-2 w-full mt-3 text-center text-white bg-blue-500 rounded-md lg:ml-5"
+                        href="https://quantfarming-dashboard.vercel.app/login?role=admin"
+                        className="p-5 center flex-1 mr-2 w-full mt-3 text-center text-white bg-blue-500 rounded-md lg:ml-5"
                       >
                         Admin Login
                       </Link>
                       <Link
-                        href=""
-                        className=" flex-1 w-full px-6 pt-4 mt-3 text-center text-white border-white border rounded-md lg:ml-5"
+                        href="https://quantfarming-dashboard.vercel.app/login?role=user"
+                        className="flex-1 w-full px-6 pt-4 mt-3 text-center text-white border-white border rounded-md lg:ml-5"
                       >
-                      <Badge badgeContent={cartItemCount} color="primary">
-                        <IconButton onClick={() => handleAddToCart()} color="inherit">
-                          <ShoppingCartIcon className=' text-white dark:text-white' />
-                        </IconButton>
-                      </Badge>
+                        User Login
                       </Link>
-                      </div>
-                      
+                    </div>
+
                   </>
                 </Disclosure.Panel>
               </div>
@@ -258,13 +252,34 @@ const Navbar = (isAddCartOpen) => {
           </ul>
         </div>
 
-        <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-          <Link
-            href="https://quantfarming-dashboard.vercel.app/login"
-            className="px-6 py-2 text-white bg-blue-500 rounded-md md:ml-5"
-          >
-            Admin Login
-          </Link>
+        <div className="hidden mr-5 space-x-5 lg:flex nav__item">
+          <div className="relative group">
+            <button className="p-2 center flex-1 w-40 mt-3 text-center text-white bg-blue-500 rounded-md lg:ml-5">
+              Login
+            </button>
+            <ul className="absolute hidden top-full left-1/2 transform -translate-x-1/2 mt-1 w-40 text-white rounded-md z-10 group-hover:block">
+              <li>
+                <a
+                  href="https://quantfarming-dashboard.vercel.app/login?role=admin"
+                  className="block p-3 hover:bg-golden text-center"
+                >
+                  Admin Login
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://quantfarming-dashboard.vercel.app/login?role=user"
+                  className="block p-3 hover-bg-golden text-center"
+                >
+                  User Login
+                </a>
+              </li>
+            </ul>
+          </div>
+
+
+
+
 
           <ThemeChanger />
           <Badge badgeContent={cartItemCount} color="primary">
@@ -277,9 +292,10 @@ const Navbar = (isAddCartOpen) => {
             onClose={handleCloseModal}
             cartItems={cartItems}
             removeFromCart={removeFromCart}
-
           />
         </div>
+
+
 
       </nav>
       <div className="absolute top-0 right-0 inset-0 min-w-full h-full">
