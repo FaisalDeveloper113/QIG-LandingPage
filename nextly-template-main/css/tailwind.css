@@ -8,20 +8,3 @@
     @apply dark:bg-trueGray-900;
   }
 }
-
-@layer components {
-  /* Adjustments for smaller screens using responsive classes */
-  html,
-  body {
-    @sm: sm(text-sm); /* Define a variable for the small screen utility */
-    @apply @sm; /* Apply the small screen utility */
-  }
-}
-
-@layer utilities {
-  /* Add responsive utility classes for smaller screens */
-  .container {
-    @sm: sm(max-w-full); /* Define a variable for the small screen utility */
-    @apply @sm; /* Apply the small screen utility */
-  }
-}
